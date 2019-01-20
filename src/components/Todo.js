@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 
 const Todo = ({onClick, completed, text}) => {
     // eslint-disable-next-line no-unused-expressions
-    return (<li onClick={onClick} style={{
-        textDecoration: completed ? 'line-through' : 'none'
-      }}>
+    return (
+      <li onClick={onClick} style={{textDecoration: completed ? 'line-through' : 'none'}}>
         {text}
       </li>)
 }
