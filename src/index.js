@@ -4,16 +4,16 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers';
 import App from './components/App.js';
-import Home from './components/About';
+import Home from './components/Home';
 import About from './components/About';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-
-const store = createStore(rootReducer)
+import createHashHistory from 'history/createHashHistory';
+const history = createHashHistory();
+const store = createStore(rootReducer);
 
 render(
   <Provider store={store}>
-    <Router>
+    <Router history={history}>
       <Switch>
         <Route path='/home' component={Home}></Route>
         <Route path='/about' component={About}></Route>
