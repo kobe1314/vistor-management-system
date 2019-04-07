@@ -84,7 +84,7 @@ class Registration extends Component {
 								<option value="1">女</option>
 							</select>
 							<label className="label">人数</label>
-							<input name="number" value={this.state.number} onChange={this.onChange} className= "input lastInput" type="number"/>
+							<input name="number" value={this.state.number} onChange={this.onChange} className= "input lastInput smallInput" type="number"/>
 						</div >
 						<div className="formGroup">
 							<label className="label">证件号</label>
@@ -115,15 +115,15 @@ class Registration extends Component {
 							<input name="date" value={this.state.date} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>携带物品</label>
+							<label className={"label"}>携带<br/>物品</label>
 							<input name="comeWith" value={this.state.comeWith} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className="label">接待人签字</label>
+							<label className="label">接待人<br/>签字</label>
 							<input name="receive" onChange={this.onChange} className="input receive" value={this.state.receive} type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className="label">办理人:</label>
+							<label className="label">办理人</label>
 						</div >
 						<div className= "formGroup lastGroup">
 							<label className= "label noBorder descript">说明：此单仅供本人使用，不得涂改转借，此单当日有效</label>

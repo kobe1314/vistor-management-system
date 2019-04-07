@@ -167,17 +167,17 @@ q:before, q:after { content:'' }
     .app {
         border: solid 1pt #999;
         background: #fff;
-        width: 330pt;
+        width: 180pt;
         box-sizing: border-box;
-        padding: 20pt;
-        margin:30pt auto 0;
+        padding: 5pt 5pt 10pt;
+        margin:5pt auto 0;
         display:flex;
         flex-direction: column;
         
         .title {
-            font-size: 12pt;
+            font-size: 10pt;
             font-weight: 500;
-            line-height: 30pt;
+            line-height: 20pt;
             text-align: center;
             padding-bottom:10pt;
         }
@@ -194,27 +194,38 @@ q:before, q:after { content:'' }
         
                 .label {
                     border-right: solid 1pt #999;
-                    width: 52pt;
                     box-sizing: border-box;
                     text-align: center;
                     flex-grow:0;
-                    min-width: 52pt;
-                    line-height:15pt;
-                    padding:8pt 0;
+                    width: 19%;
+                    min-width: 19%;
+                    max-width:19%;
+                    line-height:10pt;
+                    padding:3pt 0;
                 }
                 .input {
                     border: 0 none;
                     border-right:1pt solid #999;
                     flex-shrink:1;
                     flex-grow:1;
-                    text-indent: 2em;
+                    text-align:left;
+                    text-indent:1pt;
                     -webkit-appearance: none;
                     border-radius:0;
-                    min-width:45pt;
+                    width:19%;
+                    max-width:19%;
+                    min-width:19%;
                     -moz-appearance: textfield;
                 }
                 .lastInput{
                     border-right:0 none;
+                }
+                .smallInput{
+                    width:10%;
+                    max-width:10%;
+                    min-width:10%;
+                    flex-shrink:0;
+                    flex-grow:0;
                 }
                 .alignLeft{
                     text-align: left;
