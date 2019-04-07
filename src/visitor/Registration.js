@@ -79,7 +79,7 @@ class Registration extends Component {
 						<div className= "formGroup firstGroup">
 							<label className="label">姓名</label><input name="name" onChange={this.onChange} className={"input"} value={this.state.name} type="text"/>
 							<label className="label">性别</label>
-							<select className="input" name="sex" onChange={this.onChange} value={this.state.sex}>
+							<select className="input smallInput" name="sex" onChange={this.onChange} value={this.state.sex}>
 								<option value="0">男</option>
 								<option value="1">女</option>
 							</select>

@@ -219,6 +219,10 @@ q:before, q:after { content:'' }
                 }
                 .lastInput{
                     border-right:0 none;
+                    flex-grow:1;
+                    width:81%;
+                    min-width:81%;
+                    max-width:81%;
                 }
                 .smallInput{
                     width:10%;
@@ -229,7 +233,8 @@ q:before, q:after { content:'' }
                 }
                 .alignLeft{
                     text-align: left;
-                    text-indent:2em;
+                    text-indent:2pt;
+                    width:100%;
                 }
                 .noBorder{
                     border:0 none;
@@ -238,6 +243,8 @@ q:before, q:after { content:'' }
                     font-size:8pt;
                     text-indent:2em;
                     width:100%;
+                    min-width:100%;
+                    max-width:100%;
                     text-align: left;
                 }
             }
@@ -245,7 +252,7 @@ q:before, q:after { content:'' }
                 border-top:1px solid #999;
             }
             .lastGroup{
-                margin:15pt 0 15pt;
+                margin:0;
                 border:0 none;
             }
             .receive{
