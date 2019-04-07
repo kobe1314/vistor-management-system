@@ -136,8 +136,6 @@ q:before, q:after { content:'' }
     .btnClear{
         background:red;
     }
-    
-
 }
 
 @media print {
@@ -167,23 +165,23 @@ q:before, q:after { content:'' }
     .clear:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
     .clear{*zoom:1;}
     *:hover{-webkit-transition: all .2s ease-in-out;-moz-transition: all .2s ease-in-out;-o-transition: all .2s ease-in-out;transition: all .2s ease-in-out;}
-
+    // style
     .app {
-        border: solid 1px #999;
+        border: solid 1pt #999;
         background: #fff;
-        width: 450px;
+        width: 450pt;
         box-sizing: border-box;
-        padding: 20px;
-        margin:30px auto 0;
+        padding: 20pt;
+        margin:30pt auto 0;
         display:flex;
         flex-direction: column;
         
         .title {
             font-size: 12pt;
             font-weight: 500;
-            line-height: 30px;
+            line-height: 30pt;
             text-align: center;
-            padding-bottom:10px;
+            padding-bottom:10pt;
         }
 
         .form{
@@ -192,31 +190,31 @@ q:before, q:after { content:'' }
 
             .formGroup {
                 width: 100%;
-                line-height: 20px;
+                line-height: 20pt;
                 display:flex;
                 flex-direction: row;
-                border:1px solid #999;
+                border:1pt solid #999;
                 border-top:0 none;
         
                 .label {
-                    border-right: solid 1px #999;
-                    width: 52px;
+                    border-right: solid 1pt #999;
+                    width: 52pt;
                     box-sizing: border-box;
                     text-align: center;
                     flex-grow:0;
-                    min-width: 52px;
-                    line-height:20px;
-                    padding:10px 0;
+                    min-width: 52pt;
+                    line-height:20pt;
+                    padding:10pt 0;
                 }
                 .input {
                     border: 0 none;
-                    border-right:1px solid #999;
+                    border-right:1pt solid #999;
                     flex-shrink:1;
                     flex-grow:1;
                     text-indent: 2em;
                     -webkit-appearance: none;
                     border-radius:0;
-                    min-width:60px;
+                    min-width:60pt;
                     -moz-appearance: textfield;
                 }
                 .lastInput{
@@ -240,7 +238,7 @@ q:before, q:after { content:'' }
                 border-top:1px solid #999;
             }
             .lastGroup{
-                margin:15px 0 15px;
+                margin:15pt 0 15pt;
                 border:0 none;
             }
             .receive{
@@ -250,7 +248,7 @@ q:before, q:after { content:'' }
         }
 
         .opertion {
-            padding-top: 15px;
+            padding-top: 15pt;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -259,10 +257,10 @@ q:before, q:after { content:'' }
             cursor:pointer;
         }
         .btn{
-            padding:5px 10px;
+            padding:5pt 10pt;
             color:#fff;
             border:0 none;
-            margin:0 10px;
+            margin:0 10pt;
         }
         .btnPrint{
             background: green;

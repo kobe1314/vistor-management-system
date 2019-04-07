@@ -26,7 +26,6 @@ class Registration extends Component {
 	}
 
 	print() {
-		debugger
 		// window.document.body.innerHTML = window.document.getElementById('toPrint').innerHTML;  
 		// window.print(); 
 		// window.location.reload();
