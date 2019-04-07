@@ -122,10 +122,10 @@ class Registration extends Component {
 							<label className="label">接待人<br/>签字</label>
 							<input name="receive" onChange={this.onChange} className="input receive" value={this.state.receive} type="text"/>
 						</div >
-						<div className="formGroup">
-							<label className="label">办理人</label>
+						<div className="formGroup lastGroup">
+							<label className="label noBorder">办理人</label>
 						</div >
-						<div className= "formGroup lastGroup">
+						<div className= "formGroup lastGroup groupDescript">
 							<label className= "label noBorder descript">说明：此单仅供本人使用，不得涂改转借，此单当日有效</label>
 						</div >
 						<div id="buttonSection">

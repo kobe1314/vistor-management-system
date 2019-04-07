@@ -94,7 +94,7 @@ q:before, q:after { content:'' }
                 width:80pt;
             }
             .descript{
-                font-size:8pt;
+                font-size:8px;
                 text-indent:2em;
                 width:100%;
                 text-align: left;
@@ -110,6 +110,9 @@ q:before, q:after { content:'' }
         .receive{
             width: 100pt;
             max-width:30%;
+        }
+        .groupDescript{
+            margin:-15px 0 10px;
         }
     }
 
@@ -139,7 +142,7 @@ q:before, q:after { content:'' }
 @media print {
     /* base style */
     *{margin:0;padding:0;background:transparent;font-size:100%;vertical-align:baseline;outline:none}
-    body, button, input, select, textarea { font:8pt/1.5 'Microsoft YaHei UI','Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
+    body, button, input, select, textarea { font:9pt/1.5 'Microsoft YaHei UI','Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
     body {background:#fff;-webkit-tap-highlight-color: rgba(0,0,0,0);_margin:0; _height:100%;}
     h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:normal}
     ul,li{ list-style:none}
@@ -240,8 +243,9 @@ q:before, q:after { content:'' }
                     border:0 none;
                 }
                 .descript{
-                    font-size:6pt;
+                    font-size:5pt;
                     text-indent:2em;
+                    line-height:1.5;
                     width:100%;
                     min-width:100%;
                     max-width:100%;
@@ -252,12 +256,15 @@ q:before, q:after { content:'' }
                 border-top:1px solid #999;
             }
             .lastGroup{
-                margin:0;
+                margin:5pt 0 0;
                 border:0 none;
             }
             .receive{
                 width: 100pt;
                 max-width:30%;
+            }
+            .groupDescript{
+                margin:0pt 0 0pt;
             }
         }
 
