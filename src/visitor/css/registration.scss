@@ -54,8 +54,6 @@ q:before, q:after { content:'' }
         flex-direction: column;
 
         .formGroup {
-            width: 100%;
-            line-height: 20px;
             display:flex;
             flex-direction: row;
             border:1px solid #999;
@@ -169,7 +167,7 @@ q:before, q:after { content:'' }
     .app {
         border: solid 1pt #999;
         background: #fff;
-        width: 450pt;
+        width: 330pt;
         box-sizing: border-box;
         padding: 20pt;
         margin:30pt auto 0;
@@ -189,8 +187,6 @@ q:before, q:after { content:'' }
             flex-direction: column;
 
             .formGroup {
-                width: 100%;
-                line-height: 20pt;
                 display:flex;
                 flex-direction: row;
                 border:1pt solid #999;
@@ -203,8 +199,8 @@ q:before, q:after { content:'' }
                     text-align: center;
                     flex-grow:0;
                     min-width: 52pt;
-                    line-height:20pt;
-                    padding:10pt 0;
+                    line-height:15pt;
+                    padding:8pt 0;
                 }
                 .input {
                     border: 0 none;
@@ -214,7 +210,7 @@ q:before, q:after { content:'' }
                     text-indent: 2em;
                     -webkit-appearance: none;
                     border-radius:0;
-                    min-width:60pt;
+                    min-width:45pt;
                     -moz-appearance: textfield;
                 }
                 .lastInput{
