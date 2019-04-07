@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './logo.svg';
-import classNames from 'classnames';
-import styles from './css/registration.scss';
+import './css/registration.scss';
 class Registration extends Component {
 
 	constructor(props) {
@@ -27,6 +26,7 @@ class Registration extends Component {
 	}
 
 	print() {
+		debugger
 		// window.document.body.innerHTML = window.document.getElementById('toPrint').innerHTML;  
 		// window.print(); 
 		// window.location.reload();
@@ -77,51 +77,62 @@ class Registration extends Component {
 				<div className="app">
 					<h3 className="title">宝丰能源访客登记单</h3>
 					<form className="form" autoComplete="off">
-						<div className={classNames("formGroup", "firstGroup")}>
+						<div className= "formGroup firstGroup">
 							<label className="label">姓名</label><input name="name" onChange={this.onChange} className={"input"} value={this.state.name} type="text"/>
 							<label className="label">性别</label>
 							<select className="input" name="sex" onChange={this.onChange} value={this.state.sex}>
 								<option value="0">男</option>
 								<option value="1">女</option>
 							</select>
-							<label className="label">人数</label><input name="number" value={this.state.number} onChange={this.onChange} className={classNames("input", "lastInput")} type="number"/>
+							<label className="label">人数</label>
+							<input name="number" value={this.state.number} onChange={this.onChange} className= "input lastInput" type="number"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>证件号</label><input name="ID" value={this.state.ID} maxLength="18" onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="number"/>
+							<label className="label">证件号</label>
+							<input name="ID" value={this.state.ID} maxLength="18" onChange={this.onChange} className= "input lastInput alignLeft" type="test"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>单位</label><input name="fromCompany" value={this.state.fromCompany} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className="label">单位</label>
+							<input name="fromCompany" value={this.state.fromCompany} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>部门</label><input name="fromDepartment" value={this.state.fromDepartment} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className="label">部门</label>
+							<input name="fromDepartment" value={this.state.fromDepartment} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>事由</label><input name="reason" value={this.state.reason} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className={"label"}>事由</label>
+							<input name="reason" value={this.state.reason} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>车牌号</label><input name="carNum" value={this.state.carNum} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className={"label"}>车牌号</label>
+							<input name="carNum" value={this.state.carNum} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>电话</label><input name="tel" value={this.state.tel} maxLength="11" onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="number"/>
+							<label className={"label"}>电话</label>
+							<input name="tel" value={this.state.tel} maxLength="11" onChange={this.onChange} className="input lastInput alignLeft" type="number"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>时间</label><input name="date" value={this.state.date} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className={"label"}>时间</label>
+							<input name="date" value={this.state.date} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>携带物品</label><input name="comeWith" value={this.state.comeWith} onChange={this.onChange} className={classNames("input", "lastInput", "alignLeft")} type="text"/>
+							<label className={"label"}>携带物品</label>
+							<input name="comeWith" value={this.state.comeWith} onChange={this.onChange} className= "input lastInput alignLeft" type="text"/>
 						</div >
 						<div className="formGroup">
-							<label className={"label"}>接待人签字</label>
+							<label className="label">接待人签字</label>
+							<input name="receive" onChange={this.onChange} className="input receive" value={this.state.receive} type="text"/>
 						</div >
-						<div className={classNames("formGroup","lastGroup")}>
-							<label className={classNames("label", "noBorder")}>办理人:</label>
+						<div className="formGroup">
+							<label className="label">办理人:</label>
 						</div >
-						<div className={classNames("formGroup", "lastGroup", "discript")}>
-							<p>说明：此单仅供本人使用，不得涂改转借此单当日有效</p>
+						<div className= "formGroup lastGroup">
+							<label className= "label noBorder descript">说明：此单仅供本人使用，不得涂改转借，此单当日有效</label>
 						</div >
 						<div id="buttonSection">
 							<div className="opertion">
-								<button className={classNames("btn", "btnPrint")} onClick={this.print}>打印</button> <button onClick={this.clear} className={classNames("btn", "btnClear")}>撤销</button>
+								<button className="btn btnPrint" onClick={this.print}>打印</button>
+								<button className="btn btnClear" onClick={this.clear} >撤销</button>
 							</div >
 						</div>
 					</form>

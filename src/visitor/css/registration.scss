@@ -1,6 +1,6 @@
 /* base style */
 *{margin:0;padding:0;background:transparent;font-size:100%;vertical-align:baseline;outline:none}
-body, button, input, select, textarea { font:13px/1.62 'Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
+body, button, input, select, textarea { font:13px/1.62 'Microsoft YaHei UI','Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
 body {background:#fff;-webkit-tap-highlight-color: rgba(0,0,0,0);_margin:0; _height:100%;}
 h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:normal}
 ul,li{ list-style:none}
@@ -25,7 +25,7 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-color: rgb(250, 255, 189); /* #FAFFBD; */
     background-image: none;
     color: rgb(0, 0, 0);
-  }
+}
 q:before, q:after { content:'' }
 .clear:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both;height: 0;}
 .clear{*zoom:1;}
@@ -92,6 +92,15 @@ q:before, q:after { content:'' }
             .noBorder{
                 border:0 none;
             }
+            .autograph{
+                width:80pt;
+            }
+            .descript{
+                font-size:8pt;
+                text-indent:2em;
+                width:100%;
+                text-align: left;
+            }
         }
         .firstGroup{
             border-top:1px solid #999;
@@ -100,11 +109,9 @@ q:before, q:after { content:'' }
             margin:15px 0 15px;
             border:0 none;
         }
-        .discript{
-            margin-top:0;
-            p{
-                text-indent:2em;
-            }
+        .receive{
+            width: 100pt;
+            max-width:30%;
         }
     }
 
@@ -129,13 +136,14 @@ q:before, q:after { content:'' }
     .btnClear{
         background:red;
     }
+    
 
 }
 
 @media print {
     /* base style */
     *{margin:0;padding:0;background:transparent;font-size:100%;vertical-align:baseline;outline:none}
-    body, button, input, select, textarea { font:13px/1.62 'Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
+    body, button, input, select, textarea { font:10pt/1.62 'Microsoft YaHei UI','Helvetica Neue',Helvetica,Arial,Sans-serif;color:#333;vertical-align:middle;word-wrap: break-word;outline:none;-webkit-text-size-adjust:none;}
     body {background:#fff;-webkit-tap-highlight-color: rgba(0,0,0,0);_margin:0; _height:100%;}
     h1, h2, h3, h4, h5, h6{font-size:100%; font-weight:normal}
     ul,li{ list-style:none}
@@ -171,8 +179,8 @@ q:before, q:after { content:'' }
         flex-direction: column;
         
         .title {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 12pt;
+            font-weight: 500;
             line-height: 30px;
             text-align: center;
             padding-bottom:10px;
@@ -221,6 +229,12 @@ q:before, q:after { content:'' }
                 .noBorder{
                     border:0 none;
                 }
+                .descript{
+                    font-size:8pt;
+                    text-indent:2em;
+                    width:100%;
+                    text-align: left;
+                }
             }
             .firstGroup{
                 border-top:1px solid #999;
@@ -228,6 +242,10 @@ q:before, q:after { content:'' }
             .lastGroup{
                 margin:15px 0 15px;
                 border:0 none;
+            }
+            .receive{
+                width: 100pt;
+                max-width:30%;
             }
         }
 
