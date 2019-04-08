@@ -23,6 +23,8 @@ class Registration extends Component {
 		this.onChange = this.onChange.bind(this);
 		this.print = this.print.bind(this);
 		this.clear = this.clear.bind(this);
+		this.readCard = this.readCard.bind(this);
+		// this.doReadCert = this.doReadCert.bind(this);
 		// this.state = { weather: null }
 		// this.print = this.print.bind(this);
 	}
@@ -73,9 +75,22 @@ class Registration extends Component {
 		}
 	}
 
+	readCard() {
+		window.doReadCert();
+		const userInfo = JSON.parse(window.userInfo)
+		console.log('id',userInfo.resultContent.certNumber);
+		// console.log('resultContent:'+userInfo);
+
+		this.setState({
+			'ID': userInfo.resultContent.certNumber
+		},() => {})
+		
+	}
+
 	render() {
 		return (
 				<div className="app">
+				<object id="CertCtl" type="application/cert-reader" width='0' height='0'></object>
 					<h3 className="title">宝丰能源访客登记单</h3>
 					<form className="form" autoComplete="off">
 						<div className= "formGroup firstGroup">
@@ -133,8 +148,10 @@ class Registration extends Component {
 						</div >
 						<div id="buttonSection">
 							<div className="opertion">
-								<button className="btn btnPrint" onClick={this.print}>打印</button>
-								<button className="btn btnClear" onClick={this.clear} >撤销</button>
+								<button className="btn btnPrint"  type="button" onClick={this.print}>打印</button>
+								<button className="btn btnClear"  type="button"  onClick={this.clear} >撤销</button>
+								<button className="btn btnClear"  type="button"  onClick={window.connect} >connect</button>
+								<button className="btn btnClear"  type="button"  onClick={this.readCard} >readcard</button>
 							</div >
 						</div>
 					</form>

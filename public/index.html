@@ -24,9 +24,47 @@
     -->
     <title>React App</title>
   </head>
+  
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <object id="CertCtl" TYPE="application/cert-reader" width=0 height=0></object>  
+    <script type="text/javascript" >  
+      window.CertCtl = CertCtl;
+      window.connect = function () 
+      {  
+          var strResult = "";
+          strResult = CertCtl.connect();
+          // alert(strResult);
+      }
+      
+      window.doDisconnect = function () 
+      {  
+          var strResult = "";
+          strResult = CertCtl.disconnect();
+          // alert(strResult);
+      }
+      
+      window.doGetStatus =function () 
+      {  
+          var strResult = "";
+          strResult = CertCtl.getStatus();
+          // alert(strResult);
+      }
+      
+      window.doReadCert = function () 
+      {  
+          window.CertCtl.connect();
+          var strResult = "";
+          strResult = CertCtl.readCert();
+          window.userInfo = strResult;
+          // alert(strResult);
+      }
+    </script>
     <div id="root"></div>
+    <!-- <input type="button" name="connect" value="connect" onClick="doConnect();">
+		<input type="button" name="getStatus" value="getStatus" onClick="doGetStatus();">
+		<input type="button" name="readCert" value="readCert" onClick="doReadCert();">
+		<input type="button" name="disconnect" value="disconnect" onClick="doDisconnect();"> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
