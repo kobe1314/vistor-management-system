@@ -1,0 +1,114 @@
+<table id="registration_table_print" className={print.Registration_table_print} border="1px solid #999" >
+                    <tbody>
+                    <tr>
+                        <td colSpan="6" className={print.Registration_table_print_title}>宝丰能源访客登记单</td>
+                    </tr>
+                    <tr>
+                        <td className={print.Registration_table_print_fristrow}>
+                            <label className={print.Registration_table_print_label}>姓名</label>
+                        </td>
+                        <td className={print.Registration_table_print_secondrow}>
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitName" value={this.state.visitName}/>
+                        </td>
+                        <td className={print.Registration_table_print_otherrow}>
+                            <label type="text" className={print.Registration_table_print_label}>性别</label>
+                        </td>
+                        <td className={print.Registration_table_print_otherrow}>
+                            <input type="text" className={print.Registration_table_print_input_gender} readOnly={true} id="visitGenderType" value={this.state.visitGenderType == 1 ? '男':'女' }/>
+                        </td>
+                        <td className={print.Registration_table_print_otherrow}>
+                            <label type="text" className={print.Registration_table_print_label}>数量</label>
+                        </td>
+                        <td className={print.Registration_table_print_lastrow}>
+                            <input type="text" className={print.Registration_table_print_input_number} readOnly={true} id="visitPersonNumber" value={this.state.visitPersonNumber}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>证件号</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitIdentityCardNumber" value={this.state.visitIdentityCardNumber}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>单位</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitCompany" value={this.state.visitCompany}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>部门</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitDepart" value={this.state.visitDepart}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>事由</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitCause" value={this.state.visitCause}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>车牌号</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitPlateNumber" value={this.state.visitPlateNumber}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>电话</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitPhoneNumber" value={this.state.visitPhoneNumber}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>时间</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitDate" value={this.state.visitDate}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>携带<br />物品</label>
+                        </td>
+                        <td colSpan="5">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitBelongings" value={this.state.visitBelongings}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label className={print.Registration_table_print_label}>接待人<br />签字</label>
+                        </td>
+                        <td>
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitReceiver" value={this.state.visitReceiver}/>
+                        </td>
+                        <td colSpan="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="2">
+                            <label className={print.Registration_table_print_label}>办理人:</label>
+                        </td>
+                        <td colSpan="4">
+                            <input type="text" className={print.Registration_table_print_input} readOnly={true} id="visitTransactor" value={this.state.visitTransactor}/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="6" align="left">
+                            <label className={print.Registration_table_print_remark}>说明：此单仅供本人使用，不得涂改转借<br />此单当日有效</label>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
