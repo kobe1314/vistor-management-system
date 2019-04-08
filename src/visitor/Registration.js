@@ -76,10 +76,13 @@ class Registration extends Component {
 	}
 
 	readCard() {
-		window.doReadCert();
-		const userInfo = JSON.parse(window.userInfo)
+
+		const CertCtl = window.document.getElementById("CertCtl");
+		CertCtl.connect();
+		const strResult = CertCtl.readCert();
+		// window.doReadCert();
+		const userInfo = JSON.parse(strResult)
 		console.log('id',userInfo.resultContent.certNumber);
-		// console.log('resultContent:'+userInfo);
 
 		this.setState({
 			'ID': userInfo.resultContent.certNumber
@@ -90,7 +93,6 @@ class Registration extends Component {
 	render() {
 		return (
 				<div className="app">
-				<object id="CertCtl" type="application/cert-reader" width='0' height='0'></object>
 					<h3 className="title">宝丰能源访客登记单</h3>
 					<form className="form" autoComplete="off">
 						<div className= "formGroup firstGroup">
