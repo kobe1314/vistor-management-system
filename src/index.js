@@ -15,9 +15,9 @@ render(
     <Provider store={store}>
         <Router history={history}>
             <Switch>
-                <Route path='/vistor' component={Registration}></Route>
-                <Route path='/attendance' component={Attendance}></Route>
-                <Route path='/' component={Registration}></Route>
+                <Route path="/vistor" component={Registration}></Route>
+                <Route path="/attendance" component={Attendance}></Route>
+                <Route path="/" component={Registration}></Route>
             </Switch>
         </Router>
   </Provider>,

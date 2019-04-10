@@ -32,6 +32,15 @@ class Registration extends Component {
         
     }
 
+    componentDidMount(){
+        const stateInfo = JSON.parse(window.sessionStorage.getItem('stateInfo'));
+        for(let i in stateInfo){
+            this.setState({
+                [i]:stateInfo[i]
+            })
+        }
+    }
+
     onChange(e) {
         this.setState({
             [e.target.name]:e.target.value
@@ -47,7 +56,7 @@ class Registration extends Component {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: postData,
+            body: postData
             }).then(function(response) {
             console.log(response);
         });
@@ -110,7 +119,7 @@ class Registration extends Component {
 
     readCert() {
 
-        const CertCtl = window.document.getElementById("CertCtl");
+        const CertCtl = window.document.getElementById('CertCtl');
 		CertCtl.connect();
 		const strUserInfo = CertCtl.readCert();
 		// window.doReadCert();
@@ -131,24 +140,17 @@ class Registration extends Component {
             var url = window.URL.createObjectURL(blob);
             var a = document.createElement('a');
             a.href = url;
-            a.download = "访客记录.xlsx";
+            a.download = '访客记录.xlsx';
             a.click();                    
         });
 
     }
 
-    componentDidMount(){
-        const stateInfo = JSON.parse(window.sessionStorage.getItem('stateInfo'));
-        for(let i in stateInfo){
-            this.setState({
-                [i]:stateInfo[i]
-            })
-        }
-    }
+    
 
     render() {
         return (
-            <div className="Registration" align="center">
+            <div align="center" className="Registration">
                 <div className="Registration-table-edit-opertion">
                     <button type="button" className="Registration-btn-readcert" id="btn_read_cert" onClick={this.readCert}>读取身份证</button>
                     <button type="button" onClick={this.exportVisit} id="btn_export_visit" className="Registration-btn-exportvisit">导出历史数据</button>
