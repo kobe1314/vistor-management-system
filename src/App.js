@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.jpg';
-import Registration from './Registration';
+import Registration from './visitor/Registration';
 import './App.css';
 
 class App extends Component {
