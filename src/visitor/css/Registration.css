@@ -1,6 +1,110 @@
+/* base style */
+* {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 100%;
+  outline: none
+}
+body, button, input, select, textarea {
+  font: 9pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  color: #333;
+  vertical-align: middle;
+  word-wrap: break-word;
+  outline: none;
+  -webkit-text-size-adjust: none;
+}
+html,body {
+  background: #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  margin: 0;
+  height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal
+}
+ul, li {
+  list-style: none
+}
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #010066;
+  text-decoration: underline;
+}
+sup {
+  vertical-align: text-top
+}
+sub {
+  vertical-align: text-bottom
+}
+em {
+  font-style: normal
+}
+legend {
+  color: #000
+}
+fieldset, img {
+  border: 0
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+caption, th {
+  text-align: left
+}
+th {
+  text-align: inherit
+}
+img {
+  vertical-align: top;
+  border: 0 none
+}
+textarea {
+  overflow: hidden;
+  overflow-y: auto;
+  resize: none;
+  _zoom: 1
+}
+input {
+  line-height: 1.2em;
+  overflow: hidden;
+  _zoom: 1
+}
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+q:before, q:after {
+  content: ''
+}
+.clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clear {
+  *zoom: 1;
+}
+*:hover {
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+/* style start */
+
+td{
+  padding:5px 0;
+}
 .Registration {
-  width: 200px;
-  height: 300px;
+  width: 360px;
   text-align: center;
   margin: 40px auto
 }
@@ -17,27 +121,27 @@
 }
 
 .Registration-table-edit-title {
-  height: 32px;
   font-family: sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
+  line-height:35px;
 }
 
 .Registration-table-edit-fristrow, .Registration-table-edit-secondrow {
-  width: 62px;
+  width: 16.32%;
   min-width: 62px;
   height: 10px;
 }
 
 .Registration-table-edit-otherrow {
-  width: 46px;
+  width: 12.11%;
   min-width: 46px;
   height: 10px;
 }
 
 .Registration-table-edit-lastrow {
-  width: 28px;
+  width: 7.37%;
   min-width: 28px;
   height: 10px;
 }
@@ -60,6 +164,7 @@
   border: 0px;
   padding: 0;
   margin: 0;
+  text-indent:1em;
 }
 
 .Registration-table-edit-input-gender {
@@ -81,7 +186,6 @@
   border: 0px;
   padding: 0;
   margin: 0;
-  text-align: center;
   font-family: sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -92,14 +196,14 @@
   font-family: sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 15px;
+  font-size: 13px;
+  padding: 3px 5px;
+  display: inline-block;
 }
 
 .Registration-table-edit-opertion {
   padding-top: 6px;
   text-align: right;
-  width: 300px;
-  height: 32px;
 }
 
 .btn:hover{
@@ -116,21 +220,30 @@
 
 .Registration-btn-print {
   margin-left: 22px;
+  padding:3px 5px;
 }
 
 .Registration-btn-reset {
   margin-left: 12px;
   margin-right: 0px;
+  padding:3px 5px;
 }
 
 .Registration-btn-readcert {
   margin-left: 22px;
   margin-bottom: 6px;
+  padding:3px 5px;
 }
 
 .Registration-btn-exportvisit {
   margin-left: 12px;
   margin-bottom: 6px;
+  padding:3px 5px;
+}
+
+.test-center{
+  text-align:center;
+  text-indent:0;
 }
 
 /* CSS for print function*/

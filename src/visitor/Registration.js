@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/Registration.css';
-import './css/print.scss';
+import './css/print.css';
 
 class Registration extends Component {
 
@@ -29,7 +29,6 @@ class Registration extends Component {
         this.reset = this.reset.bind(this);
         this.exportVisit = this.exportVisit.bind(this);
         this.saveVisitorInfo = this.saveVisitorInfo.bind(this);
-        
     }
 
     componentDidMount(){
@@ -57,7 +56,7 @@ class Registration extends Component {
                 'Content-Type': 'application/json'
             },
             body: postData
-            }).then(function(response) {
+        }).then(function(response) {
             console.log(response);
         });
     }
@@ -65,14 +64,13 @@ class Registration extends Component {
     print() {
 
         this.saveVisitorInfo();
+        window.print();
         // let postData = {a:'b'};
-        
         // const apiUrl = '/vr/queryDailyAttendance';
         // fetch(apiUrl).then((response) => {
         //     if(response.status !== 200) {
         //         throw new Error('Fail to get response with status' + response.status)
         //     }
-  
         //     response.json().then((responseJson) => {
         //       console.log('responseJson',responseJson);
         //         // this.setState({weather: responseJson.weatherinfo})
@@ -95,7 +93,6 @@ class Registration extends Component {
         // iframe.setAttribute('style', 'position:absolute;width:0px;height:0px;left:500px;top:500px;');
         // document.body.appendChild(iframe);
         // doc = iframe.contentWindow.document;
-        
         // doc.write(el.innerHTML);
         // doc.close();
         // // 获取iframe的焦点，从iframe开始打印
@@ -130,7 +127,6 @@ class Registration extends Component {
             'visitName': partyName,
             'visitGenderType': gender
         },() => {})
-        
     }
 
     exportVisit() {
@@ -141,12 +137,10 @@ class Registration extends Component {
             var a = document.createElement('a');
             a.href = url;
             a.download = '访客记录.xlsx';
-            a.click();                    
+            a.click();
         });
 
     }
-
-    
 
     render() {
         return (
@@ -155,7 +149,7 @@ class Registration extends Component {
                     <button type="button" className="Registration-btn-readcert" id="btn_read_cert" onClick={this.readCert}>读取身份证</button>
                     <button type="button" onClick={this.exportVisit} id="btn_export_visit" className="Registration-btn-exportvisit">导出历史数据</button>
                 </div>
-                <form autoComplete="false">
+                <form autoComplete="off" >
                     <table id="registration_table_edit" className="Registration-table-edit" border="1px solid #999" >
                         <tbody>
                             <tr>
@@ -166,7 +160,7 @@ class Registration extends Component {
                                     <label className="Registration-table-edit-label">姓名</label>
                                 </td>
                                 <td className="Registration-table-edit-secondrow">
-                                    <input className="Registration-table-edit-input" name="visitName" type="text" onChange={this.onChange} value={this.state.visitName}/>
+                                    <input className="Registration-table-edit-input test-center" name="visitName" type="text" onChange={this.onChange} value={this.state.visitName}/>
                                 </td>
                                 <td className="Registration-table-edit-otherrow">
                                     <label className="Registration-table-edit-label">性别</label>
@@ -181,7 +175,7 @@ class Registration extends Component {
                                     <label className="Registration-table-edit-label">数量</label>
                                 </td>
                                 <td className="Registration-table-edit-lastrow">
-                                    <input className="Registration-table-edit-input-number" name="visitPersonNumber" type="text" onChange={this.onChange} value={this.state.visitPersonNumber}/>
+                                    <input className="Registration-table-edit-input-number test-center" name="visitPersonNumber" type="text" onChange={this.onChange} value={this.state.visitPersonNumber}/>
                                 </td>
                             </tr>
                             <tr>
@@ -258,7 +252,9 @@ class Registration extends Component {
                                 <td colSpan="4">
                                 </td>
                             </tr>
-                            <tr>
+                        </tbody>
+                        <tfoot>
+                            <tr className="Registration-print-noborder">
                                 <td colSpan="2">
                                     <label className="Registration-table-edit-label">办理人:</label>
                                 </td>
@@ -266,21 +262,18 @@ class Registration extends Component {
                                     <input className="Registration-table-edit-input" name="visitTransactor" type="text" onChange={this.onChange} value={this.state.visitTransactor}/>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr className="Registration-print-noborder">
                                 <td colSpan="6" align="left">
                                     <label className="Registration-table-edit-remark">说明：此单仅供本人使用，不得涂改转借<br />此单当日有效</label>
                                 </td>
                             </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                     <div className="Registration-table-edit-opertion">
                         <button type="button" className="Registration-btn-print" id="btn_print" onClick={this.print}>打印</button>
                         <button type="button" onClick={this.reset} id="btn_reset" className="Registration-btn-reset">重置</button>
                     </div>
                 </form>
-                <br/>
-                <br/>
-                
             </div>
         );
     }
