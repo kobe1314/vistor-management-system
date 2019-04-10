@@ -151,10 +151,12 @@ class Registration extends Component {
                 </div>
                 <form autoComplete="off" >
                     <table id="registration_table_edit" className="Registration-table-edit" border="1px solid #999" >
-                        <tbody>
-                            <tr>
+                        <thead>
+                            <tr className="Registration-print-noborder">
                                 <td colSpan="6" className="Registration-table-edit-title">宝丰能源访客登记单</td>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr>
                                 <td className="Registration-table-edit-fristrow">
                                     <label className="Registration-table-edit-label">姓名</label>

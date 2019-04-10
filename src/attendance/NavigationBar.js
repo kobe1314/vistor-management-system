@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../visitor/css/navigatinoBar.css';
 
 class NavigationBar extends Component {
     constructor(props) {
@@ -7,7 +9,10 @@ class NavigationBar extends Component {
     }
     render() {
         return (
-            <div>This is navigationBar</div>
+            <div>
+                <NavLink className="tab-btn" to="/attendance/records">考情记录</NavLink>
+                <NavLink className="tab-btn" to="/attendance/summaries">考情汇总</NavLink>
+            </div>
         );
     }
 }
