@@ -10,12 +10,12 @@ import Attendance from './router/App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-const history = createBrowserHistory();
+const browserHistory = createBrowserHistory();
 const store = createStore(() => {});
 
 render(
     <Provider store={store}>
-        <Router history={history}>
+        <Router history={browserHistory}>
             <Switch>
                 <Route path="/vistor" component={Registration}></Route>
                 <Attendance path="/attendance" component={Attendance}>
