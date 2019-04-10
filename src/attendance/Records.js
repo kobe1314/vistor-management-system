@@ -8,7 +8,7 @@ class Records extends Component {
     }
     render() {
         return (
-            <div>This is attendence Records page</div>
+            <div>This is attendence records page</div>
         );
     }
 }

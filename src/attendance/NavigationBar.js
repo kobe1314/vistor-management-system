@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-class Header extends Component {
+class NavigationBar extends Component {
     constructor(props) {
         super(props);
         this.state = {  };
     }
     render() {
         return (
-            <div>This is header</div>
+            <div>This is navigationBar</div>
         );
     }
 }
 
-export default Header;
+export default NavigationBar;

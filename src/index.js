@@ -3,12 +3,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 // import rootReducer from './reducers';
-import Attendance from './attendance/Attendance';
+import Records from './attendance/Records';
+import Summaries from './attendance/Summaries';
 import Registration from './visitor/Registration';
+import Attendance from './router/App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import createHashHistory from 'history/createHashHistory';
+import { createBrowserHistory } from 'history';
 
-const history = createHashHistory();
+const history = createBrowserHistory();
 const store = createStore(() => {});
 
 render(
@@ -16,7 +18,10 @@ render(
         <Router history={history}>
             <Switch>
                 <Route path="/vistor" component={Registration}></Route>
-                <Route path="/attendance" component={Attendance}></Route>
+                <Attendance path="/attendance" component={Attendance}>
+                    <Route path="/attendance/records" component={Records}></Route>
+                    <Route path="/attendance/summaries" component={Summaries}></Route>
+                </Attendance>
                 <Route path="/" component={Registration}></Route>
             </Switch>
         </Router>
