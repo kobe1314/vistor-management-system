@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    font-size: 100%;
+    vertical-align: baseline;
+    outline: none
+}
+html{
+    -webkit-text-size-adjust: 100%;
+    font-size: 10px;
+}
+body, button, input, select, textarea {
+    font: 10px/1.6 "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei","FreeSans,Arimo","Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3","FontAwesome","sans-serif";
+    color: #333;
+    vertical-align: middle;
+    word-wrap: break-word;
+    outline: none;
+    -webkit-text-size-adjust: none;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    background: #fff;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    _margin: 0;
+    _height: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal
+}
+ul, li {
+    list-style: none
+}
+a {
+    color: #333;
+    text-decoration: none;
+}
+a:hover {
+    color: #010066;
+    text-decoration: underline;
+}
+sup {
+    vertical-align: text-top
+}
+sub {
+    vertical-align: text-bottom
+}
+em {
+    font-style: normal
+}
+legend {
+    color: #000
+}
+fieldset, img {
+    border: 0
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+caption, th {
+    text-align: left
+}
+th {
+    text-align: inherit
+}
+img {
+    vertical-align: top;
+    border: 0 none
+}
+textarea {
+    overflow: hidden;
+    overflow-y: auto;
+    resize: none;
+    _zoom: 1
+}
+input {
+    line-height: 1.2em;
+    overflow: hidden;
+    _zoom: 1
+}
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+q:before, q:after {
+    content: ''
+}
+.clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clear {
+    *zoom: 1;
+}
+*:hover {
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}

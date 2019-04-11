@@ -1,6 +1,6 @@
 @media print {
     @page {
-        size: 210mm 297mm;  /* or size: 794px 1123px;   */
+        size: 58mm 74mm;  /* or size: 794px 1123px;   */
         size: 297mm 420mm;  /* or size: 1123px 1588px;  */
     }
     .Registration-table-edit-opertion,.Registration-table-edit-opertion{

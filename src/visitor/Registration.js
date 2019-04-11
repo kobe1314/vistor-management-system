@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './css/Registration.css';
-import './css/print.css';
+import './Registration.css';
+import './print.css';
 
 class Registration extends Component {
 

@@ -3,12 +3,13 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 // import rootReducer from './reducers';
-import Records from './attendance/Records';
-import Summaries from './attendance/Summaries';
+import Records from './attendance/content/Records';
+import Summaries from './attendance/content/Summaries';
 import Registration from './visitor/Registration';
 import Attendance from './router/App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import './assets/css/common.css';
 
 const browserHistory = createBrowserHistory();
 const store = createStore(() => {});

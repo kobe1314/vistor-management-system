@@ -25,7 +25,7 @@ module.exports = {
     "rules": {
       "quotes": [2, "single"], //单引号
       "no-console": 0, //不禁用console
-      "no-debugger": 2, //禁用debugger
+      "no-debugger": 0, //禁用debugger
       "no-var": 0, //对var警告
       "semi": 0, //不强制使用分号
       "no-irregular-whitespace": 0, //不规则的空白不允许

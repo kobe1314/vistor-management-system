@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
-import NavigationBar from '../attendance/NavigationBar'
+import NavigationBar from '../attendance/navigationBar/NavigationBar';
+import Header from '../attendance/header/Header';
+import './App.css';
+
 class App extends Component {
     render() {
         return (
-            <div>
-                <NavigationBar/>
-                {this.props.children}
+            <div className="page">
+                <div className="page-header">
+                    <Header/>
+                </div>
+                <div className="page-main">
+                    <div className="page-main-left">
+                        <NavigationBar/>
+                    </div>
+                    <div className="page-main-right">
+                        {this.props.children}
+                    </div>
+                </div>
             </div>
         );
     }

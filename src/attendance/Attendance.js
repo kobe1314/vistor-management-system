@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Records from './Records';
-import Summaries from './Summaries';
+import Records from './content/Records';
+import Summaries from './content/Summaries';
 
 class Attendance extends Component {
     constructor(props) {
@@ -11,7 +10,6 @@ class Attendance extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <Records/>
                 <Summaries/>
             </div>

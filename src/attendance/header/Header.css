@@ -1,0 +1,15 @@
+.header{
+    padding:0 10px;
+}
+.header strong{
+    font-size:1.8rem;
+    height:50px;
+    line-height:50px;
+    color:#fff;
+}
+.header small{
+    font-size:1.5rem;
+    line-height:50px;
+    color:#fff;
+    margin-left:5px;
+}
