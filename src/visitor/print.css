@@ -3,6 +3,12 @@
         size: 58mm 74mm;  /* or size: 794px 1123px;   */
         size: 297mm 420mm;  /* or size: 1123px 1588px;  */
     }
+    @page :left{
+        margin-right:5mm;
+    }
+    @page :right{
+        margin-left:5mm;
+    }
     .Registration-table-edit-opertion,.Registration-table-edit-opertion{
         display:none;
     }
@@ -13,11 +19,11 @@
         border:0 none;
     }
     td{
-        padding:5px 0;
+        padding:2px 0;
     }
     .Registration {
-        width: 296px;
-        min-width:296px;
+        width: 280px;
+        min-width:280px;
         text-align: center;
         margin:10px auto
     }
@@ -41,25 +47,26 @@
         font-family: sans-serif;
         font-style: normal;
         font-weight: bold;
-        font-size: 20px;
+        font-size: 22px;
         line-height:35px;
+        letter-spacing: 0.1em;
     }
     
     .Registration-table-edit-fristrow, .Registration-table-edit-secondrow {
-        width: 16.32%;
-        min-width: 62px;
+        width: 13%;
+        /* min-width: 50px; */
         height: 10px;
     }
     
     .Registration-table-edit-otherrow {
-        width: 12.11%;
-        min-width: 46px;
+        width: 10%;
+        /* min-width: 40px; */
         height: 10px;
     }
     
     .Registration-table-edit-lastrow {
-        width: 7.37%;
-        min-width: 28px;
+        width: 10%;
+        /* min-width: 23px; */
         height: 10px;
     }
     
@@ -99,8 +106,12 @@
         appearance:none;
         -moz-appearance:none;
         -webkit-appearance:none;
+        -ms-appearance:none;
         text-align: center;
         text-align-last: center;
+    }
+    select::-ms-expand{
+        display:none;
     }
     
     .Registration-table-edit-input-number {
@@ -168,101 +179,5 @@
         text-align:center;
         text-indent:0;
     }
-    
-    /* CSS for print function*/
-    
-    .Registration-table-print {
-        border: 1px solid #999;
-        border-collapse: collapse;
-    }
-    
-    .Registration-table-print tr{
-        height: 14px;
-        line-height: 14px;
-    }
-    
-    .Registration-table-print-title {
-        height: 32px;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-    }
-    
-    .Registration-table-print-fristrow, .Registration-table-print-secondrow {
-        width: 48px;
-        min-width: 48px;
-        height: 10px;
-    }
-    
-    .Registration-table-print-otherrow {
-        width: 32px;
-        min-width: 32px;
-        height: 10px;
-    }
-    
-    .Registration-table-print-lastrow {
-        width: 18px;
-        min-width: 18px;
-        height: 10px;
-    }
-    
-    .Registration-table-print-label {
-        width: 100%;
-        height: 100%;
-        border: 0px;
-        padding: 0;
-        margin: 0;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 12px;
-    }
-    
-    .Registration-table-print-input {
-        width: 100%;
-        height: 100%;
-        border: 0px;
-        padding: 0;
-        margin: 0;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-    }
-    
-    .Registration-table-print-input-gender {
-        width: 100%;
-        height: 100%;
-        border: 0px;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-    }
-    
-    .Registration-table-print-input-number {
-        width: 100%;
-        height: 100%;
-        border: 0px;
-        padding: 0;
-        margin: 0;
-        text-align: center;
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-    }
-    
-    .Registration-table-print-remark {
-        font-family: sans-serif;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 12px;
-    }
-
 }
 
