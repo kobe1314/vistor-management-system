@@ -23,7 +23,6 @@ html,body {
 }
 button{
   border:1px solid #000;
-  border-color:#000;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
@@ -111,6 +110,7 @@ q:before, q:after {
 
 td{
   padding:5px 0;
+  border:1px solid #000;
 }
 .Registration {
   width: 360px;
@@ -121,8 +121,11 @@ td{
 /* CSS for edit function*/
 .Registration-table-edit {
   border: 1px solid #000;
-  border-color:#000;
   border-collapse: collapse;
+}
+
+.Registration-table-edit tbody{
+  border:1px solid #000;
 }
 
 .Registration-table-edit tr{

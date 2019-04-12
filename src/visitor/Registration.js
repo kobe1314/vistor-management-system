@@ -150,7 +150,7 @@ class Registration extends Component {
                     <button type="button" onClick={this.exportVisit} id="btn_export_visit" className="Registration-btn-exportvisit">导出历史数据</button>
                 </div>
                 <form autoComplete="off" >
-                    <table id="registration_table_edit" className="Registration-table-edit" border="1px solid #999" >
+                    <table id="registration_table_edit" className="Registration-table-edit">
                         <thead>
                             <tr className="Registration-print-noborder">
                                 <td colSpan="6" className="Registration-table-edit-title">宝丰能源访客登记单</td>
