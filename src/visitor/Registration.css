@@ -8,7 +8,7 @@
   color:#000;
 }
 body, button, input, select, textarea {
-  font: 9pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  font: 13pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
   color: #000;
   vertical-align: middle;
   word-wrap: break-word;
@@ -75,12 +75,15 @@ textarea {
   overflow: hidden;
   overflow-y: auto;
   resize: none;
-  _zoom: 1
+  _zoom: 1;
+  font-size:14px;
 }
 input {
   line-height: 1.2em;
   overflow: hidden;
   _zoom: 1;
+  font-size:14px;
+  font-weight:400;
   color:#000;
 }
 input::-webkit-inner-spin-button {
