@@ -23,6 +23,7 @@ html,body {
 }
 button{
   border:1px solid #000;
+  border-color:#000;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
@@ -120,6 +121,7 @@ td{
 /* CSS for edit function*/
 .Registration-table-edit {
   border: 1px solid #000;
+  border-color:#000;
   border-collapse: collapse;
 }
 

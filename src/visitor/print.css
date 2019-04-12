@@ -14,9 +14,11 @@
     }
     button{
         border:1px solid #000;
+        border-color:#000;
     }
     .Registration-table-edit {
         border: 1px solid #000;
+        border-color:#000;
         border-collapse: collapse;
     }
     
@@ -122,6 +124,8 @@
     td{
         padding:2px 0;
         color:#000;
+        border:1px solid #000;
+        border-color:#000;
     }
     label{
         color:#fff;
@@ -141,6 +145,7 @@
 
     .Registration-table-edit tbody{
         border:1px solid #000;
+        border-color:#000;
     }
     
     .Registration-table-edit tr{
