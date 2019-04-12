@@ -9,6 +9,104 @@
     @page :right{
         margin-left:5mm;
     }
+    button{
+        border:1px solid #000;
+    }
+    .Registration-table-edit {
+        border: 1px solid #000;
+        border-collapse: collapse;
+    }
+    
+    .Registration-table-edit tr{
+        height: 20px;
+        line-height: 20px;
+    }
+    
+    .Registration-table-edit-title {
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        line-height:35px;
+    }
+    
+    .Registration-table-edit-fristrow, .Registration-table-edit-secondrow {
+        width: 16.32%;
+        min-width: 62px;
+        height: 10px;
+    }
+    
+    .Registration-table-edit-otherrow {
+        width: 12.11%;
+        min-width: 46px;
+        height: 10px;
+    }
+    
+    .Registration-table-edit-lastrow {
+        width: 7.37%;
+        min-width: 28px;
+        height: 10px;
+    }
+    
+    .Registration-table-edit-label {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+    }
+    
+    .Registration-table-edit-input {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        padding: 0;
+        margin: 0;
+        text-indent:1em;
+    }
+    
+    .Registration-table-edit-input-gender {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    
+    .Registration-table-edit-input-number {
+        width: 100%;
+        height: 100%;
+        border: 0px;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+    }
+    
+    .Registration-table-edit-remark {
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        padding: 3px 5px;
+        display: inline-block;
+    }
+    
+    .Registration-table-edit-opertion {
+        padding-top: 6px;
+        text-align: right;
+    }
     .Registration-table-edit-opertion,.Registration-table-edit-opertion{
         display:none;
     }
@@ -35,7 +133,7 @@
     }
 
     .Registration-table-edit tbody{
-        border:1px solid #999;
+        border:1px solid #000;
     }
     
     .Registration-table-edit tr{

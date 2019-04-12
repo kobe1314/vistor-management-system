@@ -8,7 +8,7 @@
 }
 body, button, input, select, textarea {
   font: 9pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
-  color: #333;
+  color: #000;
   vertical-align: middle;
   word-wrap: break-word;
   outline: none;
@@ -16,9 +16,12 @@ body, button, input, select, textarea {
 }
 html,body {
   background: #fff;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: #000;
   margin: 0;
   height: 100%;
+}
+button{
+  border:1px solid #000;
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
@@ -28,7 +31,7 @@ ul, li {
   list-style: none
 }
 a {
-  color: #333;
+  color: #000;
   text-decoration: none;
 }
 a:hover {
@@ -111,7 +114,7 @@ td{
 
 /* CSS for edit function*/
 .Registration-table-edit {
-  border: 1px solid #999;
+  border: 1px solid #000;
   border-collapse: collapse;
 }
 
@@ -249,7 +252,7 @@ td{
 /* CSS for print function*/
 /* 
 .Registration-table-print {
-  border: 1px solid #999;
+  border: 1px solid #000;
   border-collapse: collapse;
 }
 
