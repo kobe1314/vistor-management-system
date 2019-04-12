@@ -27,7 +27,7 @@ button{
 }
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
-  font-weight: normal
+  font-weight: 400
 }
 ul, li {
   list-style: none
@@ -140,7 +140,7 @@ td{
 .Registration-table-edit-title {
   font-family: sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 20px;
   line-height:35px;
 }
@@ -171,7 +171,7 @@ td{
   margin: 0;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 14px;
  }
 
@@ -184,6 +184,7 @@ td{
   text-indent:1em;
   font-size:14px;
   font-weight: 400;
+  color:#000;
 }
 
 .Registration-table-edit-input-gender {
@@ -195,8 +196,9 @@ td{
   text-align: center;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
+  color:#000;
 }
 
 .Registration-table-edit-input-number {
@@ -207,14 +209,15 @@ td{
   margin: 0;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 14px;
+  color:#000;
 }
 
 .Registration-table-edit-remark {
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 13px;
   padding: 3px 5px;
   display: inline-block;
@@ -268,6 +271,7 @@ td{
 input{
   font-size:14px;
   font-weight:400;
+  color:#000;
 }
 
 /* CSS for print function*/
@@ -286,7 +290,7 @@ input{
   height: 32px;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 16px;
 }
 
@@ -316,7 +320,7 @@ input{
   margin: 0;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: bold;
+  font-weight: 500;
   font-size: 12px;
 }
 
@@ -328,7 +332,7 @@ input{
   margin: 0;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 12px;
 }
 
@@ -341,7 +345,7 @@ input{
   text-align: center;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 12px;
 }
 
@@ -354,13 +358,13 @@ input{
   text-align: center;
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 12px;
 }
 
 .Registration-table-print-remark {
   font-family: sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 12px;
 } */

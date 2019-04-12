@@ -72,6 +72,7 @@
         text-indent:1em;
         font-size:14px;
         font-weight:400;
+        color:#000;
     }
     
     .Registration-table-edit-input-gender {
@@ -85,6 +86,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
+        color:#000;
     }
     
     .Registration-table-edit-input-number {
@@ -97,6 +99,7 @@
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
+        color:#000;
     }
     
     .Registration-table-edit-remark {
@@ -200,6 +203,7 @@
         text-indent:1em;
         font-size:14px;
         font-weight:400;
+        color:#000;
     }
     
     .Registration-table-edit-input-gender {
@@ -220,6 +224,7 @@
         -ms-appearance:none;
         text-align: center;
         text-align-last: center;
+        color:#000;
     }
     select::-ms-expand{
         display:none;
@@ -227,11 +232,6 @@
     select{
         color:#000;
         font-weight:400;
-    }
-    input{
-        color:#000;
-        font-weight:400;
-        font-size:14px;
     }
     .Registration-table-edit-input-number {
         width: 100%;
@@ -297,6 +297,11 @@
     .test-center{
         text-align:center;
         text-indent:0;
+    }
+    input{
+        font-size:14px;
+        font-weight:400;
+        color:#000;
     }
 }
 
