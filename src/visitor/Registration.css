@@ -8,7 +8,8 @@
   color:#000;
 }
 body, button, input, select, textarea {
-  font: 13pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  font: 13px/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  font-size:14px;
   color: #000;
   vertical-align: middle;
   word-wrap: break-word;
@@ -260,6 +261,11 @@ td{
 .test-center{
   text-align:center;
   text-indent:0;
+}
+
+input{
+  font-size:14px;
+  font-weight:400;
 }
 
 /* CSS for print function*/
