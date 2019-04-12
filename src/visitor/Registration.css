@@ -4,7 +4,8 @@
   padding: 0;
   background: transparent;
   font-size: 100%;
-  outline: none
+  outline: none;
+  color:#000;
 }
 body, button, input, select, textarea {
   font: 9pt/1.5 'Microsoft YaHei UI', 'Helvetica Neue', Helvetica, Arial, Sans-serif;
@@ -57,6 +58,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0
 }
+label{
+  color:#000;
+}
 caption, th {
   text-align: left
 }
@@ -76,7 +80,8 @@ textarea {
 input {
   line-height: 1.2em;
   overflow: hidden;
-  _zoom: 1
+  _zoom: 1;
+  color:#000;
 }
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
