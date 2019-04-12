@@ -182,6 +182,8 @@ td{
   padding: 0;
   margin: 0;
   text-indent:1em;
+  font-size:14px;
+  font-weight: 400;
 }
 
 .Registration-table-edit-input-gender {
@@ -232,7 +234,7 @@ td{
   border:0 none;
   width: 64px;
   height: 24px;
-  margin: 0px auto
+  margin: 0px auto;
 }
 
 .Registration-btn-print {
