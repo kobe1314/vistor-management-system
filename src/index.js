@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import store from './redux/store';
+// import { createStore } from 'redux';
 // import rootReducer from './reducers';
 import Records from './components/content/Records';
 import Summaries from './components/content/Summaries';
@@ -12,7 +13,7 @@ import { createBrowserHistory } from 'history';
 import './assets/css/common.css';
 
 const browserHistory = createBrowserHistory();
-const store = createStore(() => {});
+// const store = createStore(() => {});
 
 render(
     <Provider store={store}>

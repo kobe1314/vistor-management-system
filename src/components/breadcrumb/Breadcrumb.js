@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Breadcrumb.css';
 
 class Breadcrumb extends Component {
@@ -9,12 +10,20 @@ class Breadcrumb extends Component {
         };
     }
     render() {
+        console.log('bread-props:', this.props);
         return (
             <div className="breadcrumb">
-                <strong>考勤记录</strong>
+                <strong>{this.props.breadText}</strong>
             </div>
         );
     }
 }
 
-export default Breadcrumb;
+const mapStateToProps = (state) => {
+    console.log('store changed state:', state);
+    return {
+        breadText:state.changeBread.breadText
+    }
+}
+
+export default connect(mapStateToProps)(Breadcrumb);
