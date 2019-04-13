@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Records from './content/Records';
-import Summaries from './content/Summaries';
+import Records from '../content/Records';
+import Summaries from '../content/Summaries';
 
 class Attendance extends Component {
     constructor(props) {

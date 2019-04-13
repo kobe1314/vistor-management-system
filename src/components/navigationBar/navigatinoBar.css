@@ -1,0 +1,15 @@
+.navBar{
+    
+}
+.navBar .navBar-item{
+    height:49px;
+    border-bottom:1px solid #dedede;
+}
+.navBar .navBar-item .tab-btn{
+    font-size:15px;
+    line-height:1.6;
+    display:block;
+    padding:1rem;
+    padding-left:12.5px;
+    text-decoration: none;
+}

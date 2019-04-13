@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Breadcrumb from '../breadcrumb/Breadcrumb';
 
 class Records extends Component {
     constructor(props) {
@@ -8,7 +8,12 @@ class Records extends Component {
     }
     render() {
         return (
-            <div>This is attendence records page</div>
+            <div>
+                <Breadcrumb />
+                <div className="page-records">
+                    
+                </div>
+            </div>
         );
     }
 }
