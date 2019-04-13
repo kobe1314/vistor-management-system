@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import NavigationBar from '../attendance/navigationBar/NavigationBar';
-import Header from '../attendance/header/Header';
+import NavigationBar from '../components/navigationBar/NavigationBar';
+import Header from '../components/header/Header';
 import './App.css';
 
 class App extends Component {
