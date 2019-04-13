@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-
+import './Breadcrumb.css';
 
 class Breadcrumb extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = { 
+            props:this.props
+        };
     }
     render() {
         return (
             <div className="breadcrumb">
-                <ol className="breadcrumb-ol">
-                    <li className="breadcrumb-li"><a href="/attendance/records">考情记录</a></li>
-                </ol>
+                <strong>考勤记录</strong>
             </div>
         );
     }

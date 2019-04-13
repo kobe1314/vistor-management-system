@@ -1,0 +1,28 @@
+.table-filter{
+    margin:0 1.6rem;
+    padding:1.6rem 0;
+    border-bottom:1px solid #eee;
+}
+.table-filter form{
+    display:flex;
+}
+.table-filter .form-group{
+    margin-right:5px;
+    position:relative;
+}
+.table-filter .form-group input{
+    border:1px solid #ccc;
+    padding:0.5em;
+    font-size:1.4rem;
+}
+.table-filter .checkbox-select{
+    position:absolute;
+    top:2.4rem;
+    border:1px solid #ccc;
+    width:100%;
+    padding:0.5em;
+    background:#fff;
+}
+.table-filter .checkbox-select .checkbox-select-item{
+
+}

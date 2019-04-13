@@ -1,0 +1,8 @@
+.breadcrumb{
+    padding:1.6rem;
+    border-bottom:1px solid #eee;
+}
+.breadcrumb strong{
+    font-size:1.8rem;
+    color:#0e90d2;
+}

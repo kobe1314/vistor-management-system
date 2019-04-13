@@ -20,7 +20,8 @@
     background: transparent;
     font-size: 100%;
     vertical-align: baseline;
-    outline: none
+    outline: none;
+    box-sizing: border-box;
 }
 html{
     -webkit-text-size-adjust: 100%;

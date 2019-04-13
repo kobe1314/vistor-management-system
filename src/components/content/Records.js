@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
+import TableFilter from '../tablaFilter/TableFilter';
+import './content.css';
 
 class Records extends Component {
     constructor(props) {
@@ -10,7 +12,8 @@ class Records extends Component {
         return (
             <div>
                 <Breadcrumb />
-                <div className="page-records">
+                <TableFilter />
+                <div className="page-content page-records">
                     
                 </div>
             </div>
