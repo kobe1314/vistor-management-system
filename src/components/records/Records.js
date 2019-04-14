@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
-import TableFilter from '../tablaFilter/TableFilter';
+import TableFilter from './TableFilter';
 import Pagination from '../pagination/Pagination'
-import './content.css';
+import '../../assets/css/content.css';
 
 class Records extends Component {
     constructor(props) {

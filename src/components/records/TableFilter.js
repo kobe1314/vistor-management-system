@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './tableFilter.css';
+import './css/tableFilter.css';
 
 class TableFilter extends Component {
     constructor(props) {

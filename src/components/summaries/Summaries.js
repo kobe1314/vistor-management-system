@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './content.css';
+import '../../assets/css/common.css';
 
 class Summaries extends Component {
     constructor(props) {
