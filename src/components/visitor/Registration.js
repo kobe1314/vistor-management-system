@@ -63,46 +63,8 @@ class Registration extends Component {
     }
 
     print() {
-
         this.saveVisitorInfo();
         window.print();
-        // let postData = {a:'b'};
-        // const apiUrl = '/vr/queryDailyAttendance';
-        // fetch(apiUrl).then((response) => {
-        //     if(response.status !== 200) {
-        //         throw new Error('Fail to get response with status' + response.status)
-        //     }
-        //     response.json().then((responseJson) => {
-        //       console.log('responseJson',responseJson);
-        //         // this.setState({weather: responseJson.weatherinfo})
-        //     }).catch(error => {
-        //         // this.setState({weather: null})
-        //     });
-        // }).catch(error => {
-        //   // this.setState({weather: null})
-        // })
-
-
-
-        // const win = window.open('','print_window');
-        // win.document.write(window.document.getElementById('registration_table_print').innerHTML);
-        // win.print();
-
-        // let doc = null;
-        // const el = document.getElementById("registration_table_print");
-        // const iframe = document.createElement('iframe');
-        // iframe.setAttribute('style', 'position:absolute;width:0px;height:0px;left:500px;top:500px;');
-        // document.body.appendChild(iframe);
-        // doc = iframe.contentWindow.document;
-        // doc.write(el.innerHTML);
-        // doc.close();
-        // // 获取iframe的焦点，从iframe开始打印
-        // iframe.contentWindow.focus();
-        // iframe.contentWindow.print();
-        // if (navigator.userAgent.indexOf("MSIE") > 0)
-        // {
-        //     document.body.removeChild(iframe);
-        // }
     }
 
     reset() {

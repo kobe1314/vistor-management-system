@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
-import TableFilter from './TableFilter';
+import RecordsTableFilter from './RecordsTableFilter';
 import Pagination from '../pagination/Pagination'
 import '../../assets/css/content.css';
 
@@ -13,7 +13,7 @@ class Records extends Component {
         return (
             <div className="right-content">
                 <Breadcrumb />
-                <TableFilter />
+                <RecordsTableFilter />
                 <div className="page-content page-records">
                     <table>
                         <thead>

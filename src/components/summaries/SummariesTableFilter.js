@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './css/tableFilter.css';
+import '../records/tableFilter.css';
 
-class TableFilter extends Component {
+class SummariesTableFilter extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,8 +12,8 @@ class TableFilter extends Component {
             },
             response:{
                 companys:[
-                    {value:'1',name:'华为'},
-                    {value:'2',name:'三星'}
+                    {value:'1',name:'中软国际'},
+                    {value:'2',name:'阿里巴巴'}
                 ]
             }
          };
@@ -64,30 +64,21 @@ class TableFilter extends Component {
                         {this.state.selectOpen ?
                         <ul className="checkbox-select">
                             <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="0" textvalue="全部" type="checkbox" /> 全部</li>
-                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="1" textvalue="华为" type="checkbox" /> 华为</li>
-                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="2" textvalue="三星" type="checkbox" /> 三星</li>
+                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="1" textvalue="中软国际" type="checkbox" /> 中软国际</li>
+                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="2" textvalue="阿里巴巴" type="checkbox" /> 阿里巴巴</li>
                         </ul>
                         :
                         ''
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="身份证" />
+                        <input type="text" placeholder="" />
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="工种" />
+                        <input type="text" placeholder="开始月份" />
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="姓名" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="开始时间" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="结束时间" />
-                    </div>
-                    <div className="form-group">
-                        <input type="text" placeholder="考勤状态" />
+                        <input type="text" placeholder="结束月份" />
                     </div>
                     <div className="form-group">
                         <button className="btn-success"><i className="iconfont">&#xe601;</i> 查询</button>
@@ -103,4 +94,4 @@ class TableFilter extends Component {
     }
 }
 
-export default TableFilter;
+export default SummariesTableFilter;
