@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Registration.css';
 import './print.css';
+import 'isomorphic-fetch';
 
 class Registration extends Component {
 

@@ -10,6 +10,7 @@ import Attendance from './router/App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import './assets/css/common.css';
+import'babel-polyfill';
 
 const browserHistory = createBrowserHistory();
 const store = createStore(() => {});
@@ -23,7 +24,7 @@ render(
                     <Route path="/attendance/records" component={Records}></Route>
                     <Route path="/attendance/summaries" component={Summaries}></Route>
                 </Attendance>
-                <Route path="/" component={Registration}></Route>
+                <Route path="/" component={Registration}></Route>    
             </Switch>
         </Router>
   </Provider>,
