@@ -1,19 +1,46 @@
 .table-filter{
     margin:0 1.6rem;
-    padding:1.6rem 0;
+    padding:1.6rem 0 0.8rem;
     border-bottom:1px solid #eee;
 }
 .table-filter form{
     display:flex;
+    flex-wrap: wrap;
 }
 .table-filter .form-group{
     margin-right:5px;
     position:relative;
+    max-width:120px;
+    min-width:100px;
+    margin-bottom:0.8rem;
 }
-.table-filter .form-group input{
+.table-filter .form-group .ele-select:after{
+    content:'<i className="iconfont">&#xe600;</i>';
+    display:block;
+    position:absolute;
+    right:0.5em;
+    top:0.2em;
+}
+.table-filter .form-group>input{
     border:1px solid #ccc;
     padding:0.5em;
     font-size:1.4rem;
+    width:100%;
+}
+.table-filter .form-group button{
+    border:1px solid #ccc;
+    padding:0.5em;
+    font-size:1.4rem;
+    line-height:1.2;
+    border:1px solid transparent;
+}
+button .iconfont{
+    color:#fff;
+    font-size:14px;
+}
+.btn-success{
+    background:#5eb95e;
+    color:#fff;
 }
 .table-filter .checkbox-select{
     position:absolute;
@@ -22,7 +49,18 @@
     width:100%;
     padding:0.5em;
     background:#fff;
+    z-index:999;
 }
 .table-filter .checkbox-select .checkbox-select-item{
 
+}
+.total{
+    display:flex;
+}
+.total .form-group{
+    width:auto;
+    max-width: none;
+    min-width:auto;
+    margin-right:1em;
+    color:#333;
 }

@@ -1,0 +1,21 @@
+.pagination{
+    padding:0 1.6rem 1.6rem;
+}
+.pagination ul{
+    display:flex;
+    justify-content: flex-end;
+}
+.pagination .page-btn{
+    text-align:center;
+    border:1px solid #ddd;
+    color:#0e90d2;
+    font-size:14px;
+    line-height:1.2;
+    padding:0.5em 1em;
+    margin:0 5px 5px 0;
+}
+.pagination .page-btn.active{
+    color:#fff;
+    background:#0e90d2;
+    border-color:#0e90d2;
+}
