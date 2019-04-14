@@ -134,13 +134,17 @@ class Registration extends Component {
         const vrExportUrl = '/vr/exportVisit';
         fetch(vrExportUrl).then(response => response.blob())
         .then(blob => {
-            var url = window.URL.createObjectURL(blob);
+            if (window.navigator && window.navigator.msSaveOrOpenBlob) {  //blob兼容IE
+                window.navigator.msSaveOrOpenBlob(blob, '访客记录.xls');
+              } else {
+                var url = window.URL.createObjectURL(blob);
             var a = document.createElement('a');
+            document.body.appendChild(a);  //兼容火狐
             a.href = url;
             a.download = '访客记录.xlsx';
             a.click();
+              }
         });
-
     }
 
     render() {
