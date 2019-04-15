@@ -3,13 +3,26 @@ import '../../assets/css/common.css';
 import Pagination from '../pagination/Pagination';
 import SummariesTableFilter from './SummariesTableFilter';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
+import {LOADING} from '../../actions/status';
+import ReactLoading from 'react-loading';
 
 class Summaries extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
+    
+    // eslint-disable-next-line react/no-deprecated
+    componentWillMount() {
+        this.props.fetchSummaries();
+        console.log(this.props);
+    }
+
     render() {
+
+        const datas = this.props.data && this.props.data.summaries || [];
+        const isLoading = this.props.data.status;
+        console.log('datas:',datas);
         return (
             <div className="right-content">
                 <Breadcrumb />
@@ -60,129 +73,53 @@ class Summaries extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>华为</td>
-                                <td>1月</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>26</td>
-                            </tr>
-                            <tr>
-                                <td>02</td>
-                                <td>华为</td>
-                                <td>2月</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>24</td>
-                            </tr>
-                            <tr>
-                                <td>03</td>
-                                <td>华为</td>
-                                <td>3月</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>缺勤</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>正常</td>
-                                <td>27</td>
-                            </tr>
+                        {
+                              isLoading === LOADING ? <ReactLoading type={'spin'} color="#FF4500" />:  datas.map((user, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{index}</td>
+                                        <td>{user.attendanceCompany}</td>
+                                        <td>{user.attendanceDate}</td>
+                                        <td>{user.attendanceName}</td>
+                                        <td>{user.attendanceDepart}</td>
+                                        <td>{user.attendanceIdentityCardNumber}</td>
+                                        <td>{user.attendanceAccessCardNumber}</td>
+                                        <td>{user.first}</td>
+                                        <td>{user.second}</td>
+                                        <td>{user.third}</td>
+                                        <td>{user.fourth}</td>
+                                        <td>{user.fifth}</td>
+                                        <td>{user.sixth}</td>
+                                        <td>{user.seventh}</td>
+                                        <td>{user.eighth}</td>
+                                        <td>{user.ninth}</td>
+                                        <td>{user.tenth}</td>
+                                        <td>{user.eleventh}</td>
+                                        <td>{user.twelfth}</td>
+                                        <td>{user.thirteenth}</td>
+                                        <td>{user.fourteenth}</td>
+                                        <td>{user.fifteenth}</td>
+                                        <td>{user.sixteenth}</td>
+                                        <td>{user.seventeenth}</td>
+                                        <td>{user.eighteenth}</td>
+                                        <td>{user.nineteenth}</td>
+                                        <td>{user.twentieth}</td>
+                                        <td>{user.twentyfirst}</td>
+                                        <td>{user.twentysecond}</td>
+                                        <td>{user.twentythird}</td>
+                                        <td>{user.twentyfourth}</td>
+                                        <td>{user.twentyfifth}</td>
+                                        <td>{user.twentysixth}</td>
+                                        <td>{user.twentyseventh}</td>
+                                        <td>{user.twentyeighth}</td>
+                                        <td>{user.twentyninth}</td>
+                                        <td>{user.thirtieth}</td>
+                                        <td>{user.thirtyfirst}</td>
+                                        <td>{user.attendanceDay}</td>
+                                    </tr>
+                                )
+                               })
+                           }
                         </tbody>
                     </table>
                 </div>

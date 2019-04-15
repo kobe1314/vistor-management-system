@@ -5,7 +5,7 @@ import { store } from './store';
 // import { createStore } from 'redux';
 // import rootReducer from './reducers';
 import Records from './components/records/RecordsContainer';
-import Summaries from './components/summaries/Summaries';
+import Summaries from './components/summaries/SummariesContainer';
 import Registration from './components/visitor/Registration';
 import Attendance from './router/App';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
