@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Records from '../records/Records';
+// import Records from '../records/RecordsContainer';
 import Summaries from '../summaries/Summaries';
 
 class Attendance extends Component {
@@ -10,7 +10,7 @@ class Attendance extends Component {
     render() {
         return (
             <div>
-                <Records/>
+                {/* <Records/> */}
                 <Summaries/>
             </div>
         );

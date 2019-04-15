@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { changeBread } from '../../redux/actions';
+import { changeBread } from '../../actions/action';
 import './navigatinoBar.css';
 
 class NavigationBar extends Component {

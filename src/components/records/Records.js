@@ -9,6 +9,12 @@ class Records extends Component {
         super(props);
         this.state = {  };
     }
+
+    // eslint-disable-next-line react/no-deprecated
+    componentWillMount() {
+    //   this.props.fetchRecords();
+        console.log(this.props);
+    }
     render() {
         return (
             <div className="right-content">
