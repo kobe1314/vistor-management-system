@@ -17,6 +17,7 @@ class Records extends Component {
         this.props.fetchRecords();
         console.log(this.props);
     }
+
     render() {
         const datas = this.props.data && this.props.data.records || [];
         const isLoading = this.props.data.status;

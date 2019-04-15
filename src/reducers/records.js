@@ -51,7 +51,7 @@ export const recordsReducer = (state = initalState, action) => {
         case FETCH_RECORD_FAIL : {
             return {...state, status: FAIL, ...action.error}
         }
-        default: 
+        default:
          { return state }
     }
 }

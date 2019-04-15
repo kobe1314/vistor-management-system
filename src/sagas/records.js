@@ -15,8 +15,7 @@ function* fetchRecords(action) {
     } catch (error) {
         console.log(error);
         yield put({type: FETCH_RECORD_FAIL, error})
-    }    
-    
+    }
 }
 
 function* recordsSaga() {
