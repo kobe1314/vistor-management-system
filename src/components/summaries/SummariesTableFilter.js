@@ -72,9 +72,6 @@ class SummariesTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="" />
-                    </div>
-                    <div className="form-group">
                         <input type="text" placeholder="开始月份" />
                     </div>
                     <div className="form-group">

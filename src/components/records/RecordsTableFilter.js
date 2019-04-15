@@ -15,7 +15,8 @@ class RecordsTableFilter extends Component {
                     {value:'1',name:'华为'},
                     {value:'2',name:'三星'}
                 ]
-            }
+            },
+            attendanceStatus: 1
          };
         this.checkBoxSelect = this.checkBoxSelect.bind(this);
         this.changeCompanyName = this.changeCompanyName.bind(this);
@@ -88,6 +89,18 @@ class RecordsTableFilter extends Component {
                     </div>
                     <div className="form-group">
                         <input type="text" placeholder="考勤状态" />
+                    </div>
+                    <div className="form-group">
+                        <input type="text" readOnly placeholder="考勤状态" className="ele-select" onClick={this.checkBoxSelect} value={this.state.selectedCompanyName} />
+                        {this.state.selectOpen ?
+                        <ul className="checkbox-select">
+                            <li className="checkbox-select-item"><input name="status" onChange={this.changeCompanyName} value="0" textvalue="全部" type="checkbox" /> 全部</li>
+                            <li className="checkbox-select-item"><input name="status" onChange={this.changeCompanyName} value="1" textvalue="正常" type="checkbox" /> 正常</li>
+                            <li className="checkbox-select-item"><input name="status" onChange={this.changeCompanyName} value="2" textvalue="缺勤" type="checkbox" /> 缺勤</li>
+                        </ul>
+                        :
+                        ''
+                        }
                     </div>
                     <div className="form-group">
                         <button className="btn-success"><i className="iconfont">&#xe601;</i> 查询</button>
