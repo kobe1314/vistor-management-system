@@ -10751,6 +10751,11 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2:
   resolved "http://registry.npm.taobao.org/react-is/download/react-is-16.8.6.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Freact-is%2Fdownload%2Freact-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha1-W7weLSkUHJ+9/tRWND/ivEMKahY=
 
+react-loading@^2.0.3:
+  version "2.0.3"
+  resolved "http://registry.npm.taobao.org/react-loading/download/react-loading-2.0.3.tgz#e8138fb0c3e4674e481b320802ac7048ae14ffb9"
+  integrity sha1-6BOPsMPkZ05IGzIIAqxwSK4U/7k=
+
 react-redux@6.0.1:
   version "6.0.1"
   resolved "http://registry.npm.taobao.org/react-redux/download/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
@@ -12349,6 +12354,11 @@ table@^4.0.3:
     lodash "^4.17.4"
     slice-ansi "1.0.0"
     string-width "^2.1.1"
+
+tachyons-components@^1.0.1:
+  version "1.0.1"
+  resolved "http://registry.npm.taobao.org/tachyons-components/download/tachyons-components-1.0.1.tgz#97c0d20e6d022b9b99a8b5d5f68579e2423d77a4"
+  integrity sha1-l8DSDm0CK5uZqLXV9oV54kI9d6Q=
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"

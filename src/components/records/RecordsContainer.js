@@ -14,7 +14,7 @@ const mapDispatherToProps = (dispatch) => {
 const mapStatusToProps = (state) => {
     console.log('records mapStatusToProps:',state);
     return {
-        records: state.records
+        data: state.records
     }
 }
 
