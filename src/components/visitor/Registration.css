@@ -115,6 +115,7 @@ q:before, q:after {
 td{
   padding:5px 0;
   border:1px solid #000;
+  position: relative;
 }
 .Registration {
   width: 360px;

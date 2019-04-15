@@ -123,3 +123,23 @@ q:before, q:after {
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
+
+/* plugin css */
+.rdrCalendarWrapper{
+    position:absolute;
+    left:0;
+    top:2.3em;
+    width:100%;
+    border:1px solid #999;
+    border-radius:5px;
+    z-index: 999;
+}
+.rdrMonthAndYearWrapper{
+    height:auto;
+}
+.rdrMonthsVertical .rdrMonth{
+    z-index: 9999;
+    background:#fff;
+    width:100%;
+    position: static!important;
+}

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './Registration.css';
 import './print.css';
 import 'isomorphic-fetch';
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { Calendar } from 'react-date-range';
 
 class Registration extends Component {
 
@@ -21,7 +24,8 @@ class Registration extends Component {
             visitBelongings:'',
             visitReceiver:'',
             visitTransactor:'',
-            createTimestamp:''
+            createTimestamp:'',
+            showCalendar:false
         }
 
         this.onChange = this.onChange.bind(this);
@@ -32,6 +36,8 @@ class Registration extends Component {
         this.saveVisitorInfo = this.saveVisitorInfo.bind(this);
         this.validate = this.validate.bind(this);
         this.showErrMsg = this.showErrMsg.bind(this);
+        this.showCalendar = this.showCalendar.bind(this);
+        this.handleSelectDate = this.handleSelectDate.bind(this);
     }
 
     componentDidMount(){
@@ -50,9 +56,6 @@ class Registration extends Component {
     }
 
     showErrMsg(msg){
-        // const div = document.createElement('div');
-        // div.appendChild(document.createTextNode(msg));
-        // div.style = '';
         const innerDiv = `<div style="border-radius:5px;padding:12px 25px;font-size:14px;line-height:24px;color:#fff;align-self:center;background:rgba(0,0,0,0.6);">${msg}</div>`;
         const divContainer = document.createElement('div');
         divContainer.style = 'width:100%;height:100%;position:absolute;top:0;left:0;display:flex;justify-content:center;flex-direction:column;';
@@ -103,7 +106,7 @@ class Registration extends Component {
             this.showErrMsg('请输入有效手机号！');
             return false;
         }
-        if(!/\d{4}-\d{2}-\d{2}/.test(reqData.visitDate)){
+        if(!/\d{4}-\d{1,2}-\d{1,2}/.test(reqData.visitDate)){
             this.showErrMsg('请输入有效来访时间！');
             return false;
         }
@@ -115,10 +118,11 @@ class Registration extends Component {
             this.showErrMsg('请输入接待者姓名！');
             return false;
         }
-        if(reqData.visitTransactor === ''){
+        else if(reqData.visitTransactor === ''){
             this.showErrMsg('请输入办理人姓名！');
             return false;
         }
+        return true;
     }
 
     saveVisitorInfo () {
@@ -188,7 +192,29 @@ class Registration extends Component {
         });
     }
 
+    showCalendar(){
+        this.setState({
+            showCalendar:!this.state.showCalendar
+        })
+    }
+
+    handleSelectDate(date){
+        date = new Date(date);
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const day = date.getDate();
+        this.setState({
+            visitDate:`${year}-${month}-${day}`,
+            showCalendar:false
+        })
+    }
+
     render() {
+        // const selectionRange = {
+		// 	startDate: new Date(),
+		// 	endDate: new Date(),
+		// 	key: 'selection'
+		// }
         return (
             <div align="center" className="Registration">
                 <div className="Registration-table-edit-opertion">
@@ -279,7 +305,12 @@ class Registration extends Component {
                                     <label className="Registration-table-edit-label">时间</label>
                                 </td>
                                 <td colSpan="5">
-                                    <input className="Registration-table-edit-input" name="visitDate" type="text" onChange={this.onChange} value={this.state.visitDate}/>
+                                    <input className="Registration-table-edit-input" name="visitDate" readOnly type="text" onClick={this.showCalendar} value={this.state.visitDate}/>
+                                    {this.state.showCalendar?
+                                        <Calendar style={{position:'absolute'}} date={new Date()} onChange={this.handleSelectDate} />
+                                        :
+                                        ''
+                                    }
                                 </td>
                             </tr>
                             <tr>
