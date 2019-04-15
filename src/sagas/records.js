@@ -1,4 +1,4 @@
-import { put,call,takeLatest } from 'redux-saga/effects';
+import { put,call,takeLatest,delay } from 'redux-saga/effects';
 import {FETCH_RECORD_STARTED, FETCH_RECORD_SUCCESS, FETCH_RECORD_FAIL,FETCH_RECORD_API} from '../actions/actionType';
 import {fetchRecordsAPI} from '../services/enhancedRequest';
 
@@ -10,7 +10,7 @@ function* fetchRecords(action) {
         // call one api
         const response = yield call(fetchRecordsAPI,apiUrl);
         console.log(response);
-
+        yield delay(2000);
         yield put({type: FETCH_RECORD_SUCCESS, result : response})
     } catch (error) {
         console.log(error);
