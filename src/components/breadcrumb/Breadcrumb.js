@@ -5,7 +5,7 @@ import './Breadcrumb.css';
 class Breadcrumb extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             props:this.props
         };
     }

@@ -25,7 +25,7 @@ render(
                     <Route path="/attendance/records" component={Records}></Route>
                     <Route path="/attendance/summaries" component={Summaries}></Route>
                 </Attendance>
-                <Route path="/" component={Registration}></Route>    
+                <Route path="/" component={Registration}></Route>
             </Switch>
         </Router>
   </Provider>,

@@ -15,7 +15,7 @@ class Records extends Component {
         this.props.fetchRecords();
         console.log(this.props);
     }
-    render() {
+    render(){
         const datas = this.props.records && this.props.records.records || [];
         return (
             <div className="right-content">
