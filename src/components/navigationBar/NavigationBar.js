@@ -11,7 +11,7 @@ class NavigationBar extends Component {
         this.clickNav = this.clickNav.bind(this);
     }
     clickNav(e){
-        debugger
+        // debugger
         this.props.changeBread(e.currentTarget.attributes.linkname.value);
     }
     render() {

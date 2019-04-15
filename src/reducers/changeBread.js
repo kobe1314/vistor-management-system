@@ -5,7 +5,7 @@ const defaultState = {
 }
 
 export default function(state=defaultState, action) {
-    debugger
+    // debugger
     switch (action.type) {
         case CHANGE_BREAD: {
             const { breadText } = action.payload;

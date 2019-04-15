@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 // import { createStore } from 'redux';
 // import rootReducer from './reducers';
-// import Records from './components/records/RecordsContainer';
+import Records from './components/records/RecordsContainer';
 import Summaries from './components/summaries/Summaries';
 import Registration from './components/visitor/Registration';
 import Attendance from './router/App';
@@ -22,7 +22,7 @@ render(
             <Switch>
                 <Route path="/vistor" component={Registration}></Route>
                 <Attendance path="/attendance" component={Attendance}>
-                    {/* <Route path="/attendance/records" component={Records}></Route> */}
+                    <Route path="/attendance/records" component={Records}></Route>
                     <Route path="/attendance/summaries" component={Summaries}></Route>
                 </Attendance>
                 <Route path="/" component={Registration}></Route>    

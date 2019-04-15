@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../../assets/css/common.css';
-// import Pagination from '../pagination/Pagination';
-// import SummariesTableFilter from './SummariesTableFilter';
-// import Breadcrumb from '../breadcrumb/Breadcrumb';
+import Pagination from '../pagination/Pagination';
+import SummariesTableFilter from './SummariesTableFilter';
+import Breadcrumb from '../breadcrumb/Breadcrumb';
 
 class Summaries extends Component {
     constructor(props) {
@@ -12,8 +12,181 @@ class Summaries extends Component {
     render() {
         return (
             <div className="right-content">
-                
-            this is page
+                 <Breadcrumb />
+                <SummariesTableFilter />
+                <div className="page-content page-records">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>单位名称</th>
+                                <th>考勤月份</th>
+                                <th>姓名</th>
+                                <th>工种</th>
+                                <th>身份证</th>
+                                <th>门禁卡号</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                                <th>6</th>
+                                <th>7</th>
+                                <th>8</th>
+                                <th>9</th>
+                                <th>10</th>
+                                <th>11</th>
+                                <th>12</th>
+                                <th>13</th>
+                                <th>14</th>
+                                <th>15</th>
+                                <th>16</th>
+                                <th>17</th>
+                                <th>18</th>
+                                <th>19</th>
+                                <th>20</th>
+                                <th>21</th>
+                                <th>22</th>
+                                <th>23</th>
+                                <th>24</th>
+                                <th>25</th>
+                                <th>26</th>
+                                <th>27</th>
+                                <th>28</th>
+                                <th>29</th>
+                                <th>30</th>
+                                <th>31</th>
+                                <th>出勤天数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01</td>
+                                <td>华为</td>
+                                <td>1月</td>
+                                <td>张三丰</td>
+                                <td>开发</td>
+                                <td>140602198811093511</td>
+                                <td>123456</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>26</td>
+                            </tr>
+                            <tr>
+                                <td>02</td>
+                                <td>华为</td>
+                                <td>2月</td>
+                                <td>张三丰</td>
+                                <td>开发</td>
+                                <td>140602198811093511</td>
+                                <td>123456</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>03</td>
+                                <td>华为</td>
+                                <td>3月</td>
+                                <td>张三丰</td>
+                                <td>开发</td>
+                                <td>140602198811093511</td>
+                                <td>123456</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>缺勤</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>正常</td>
+                                <td>27</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <Pagination />
             </div>
         );
     }

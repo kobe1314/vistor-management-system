@@ -8,6 +8,7 @@ const initalState = {
             attendanceIdentityCardNumber: '',
             attendanceName: '',
             attendanceDate: '',
+            attendanceCompany: '',
             attendanceDepart: '',
             attendanceAccessCardNumber: '',
             attendanceDuration: '',
@@ -15,6 +16,27 @@ const initalState = {
         }
     ]
 }
+
+const filterRecordsResponse = (state,resp) => {
+    const datas = resp.result.data;
+    const records = datas.map(data => {
+        const {attendanceCompany, attendanceDepart, attendanceAccessCardNumber,attendanceDuration, attendanceStatus} = data;
+        return {
+            attendanceIdentityCardNumber: data.attendanceKey.attendanceIdentityCardNumber,
+            attendanceDate: data.attendanceKey.attendanceDate,
+            attendanceName: data.attendanceKey.attendanceName,
+            attendanceCompany,
+            attendanceDepart,
+            attendanceAccessCardNumber,
+            attendanceDuration,
+            attendanceStatus
+        }
+    })
+
+    return {...state, status: SUCCESS,records};
+
+}
+
 export const recordsReducer = (state = initalState, action) => {
 
     switch(action.type) {
@@ -23,7 +45,7 @@ export const recordsReducer = (state = initalState, action) => {
         }
 
         case FETCH_RECORD_SUCCESS : {
-            return {...state, status: SUCCESS, ...action.result};
+            return filterRecordsResponse(state,action);
         }
 
         case FETCH_RECORD_FAIL : {
@@ -33,3 +55,4 @@ export const recordsReducer = (state = initalState, action) => {
          { return state }
     }
 }
+

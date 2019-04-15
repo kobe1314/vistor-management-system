@@ -12,10 +12,16 @@ class Records extends Component {
 
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
-    //   this.props.fetchRecords();
+        this.props.fetchRecords();
         console.log(this.props);
     }
+
+    componentWillUpdate(nextProps) {
+      console.log(nextProps.records);
+    }
+
     render() {
+        const datas = this.props.records && this.props.records.records || [];
         return (
             <div className="right-content">
                 <Breadcrumb />
@@ -36,39 +42,21 @@ class Records extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>01</td>
-                                <td>华为</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>2019-04</td>
-                                <td>176</td>
-                                <td>正常</td>
-                            </tr>
-                            <tr>
-                                <td>01</td>
-                                <td>华为</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>2019-04</td>
-                                <td>176</td>
-                                <td>正常</td>
-                            </tr>
-                            <tr>
-                                <td>01</td>
-                                <td>华为</td>
-                                <td>张三丰</td>
-                                <td>开发</td>
-                                <td>140602198811093511</td>
-                                <td>123456</td>
-                                <td>2019-04</td>
-                                <td>176</td>
-                                <td>正常</td>
-                            </tr>
+                           {datas.map((user, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>{index}</td>
+                                    <td>{user.attendanceCompany}</td>
+                                    <td>{user.attendanceName}</td>
+                                    <td>{user.attendanceDepart}</td>
+                                    <td>{user.attendanceIdentityCardNumber}</td>
+                                    <td>{user.attendanceAccessCardNumber}</td>
+                                    <td>{user.attendanceDate}</td>
+                                    <td>{user.attendanceDuration}</td>
+                                    <td>{user.attendanceStatus === '1'? '出勤': '缺勤'}</td>
+                                </tr>
+                            )
+                           })}
                         </tbody>
                     </table>
                 </div>

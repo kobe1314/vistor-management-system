@@ -103,7 +103,7 @@ class RecordsTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <button className="btn-success"><i className="iconfont">&#xe601;</i> 查询</button>
+                        <button className="btn-success" type="button"><i className="iconfont">&#xe601;</i> 查询</button>
                     </div>
                 </form>
                 <div className="total">
