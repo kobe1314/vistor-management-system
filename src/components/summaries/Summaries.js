@@ -12,7 +12,7 @@ class Summaries extends Component {
     render() {
         return (
             <div className="right-content">
-                 <Breadcrumb />
+                <Breadcrumb />
                 <SummariesTableFilter />
                 <div className="page-content page-records">
                     <table>

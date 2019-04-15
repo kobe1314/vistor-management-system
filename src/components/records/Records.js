@@ -15,11 +15,6 @@ class Records extends Component {
         this.props.fetchRecords();
         console.log(this.props);
     }
-
-    componentWillUpdate(nextProps) {
-      console.log(nextProps.records);
-    }
-
     render() {
         const datas = this.props.records && this.props.records.records || [];
         return (

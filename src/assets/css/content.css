@@ -4,8 +4,9 @@
     flex-direction: column;
 }
 .page-content{
-    padding:1.6rem;
+    margin:1.6rem;
     flex-grow:1;
+    overflow-x:auto;
 }
 .page-content table{
     min-width:100%;

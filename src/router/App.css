@@ -26,4 +26,5 @@
 }
 .page-main-right{
     flex-grow:1;
+    overflow:hidden;
 }
