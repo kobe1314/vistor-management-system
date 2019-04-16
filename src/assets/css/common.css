@@ -39,6 +39,9 @@ body, button, input, select, textarea {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+button:hover{
+    cursor: pointer;
+}
 body {
     background: #fff;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -133,6 +136,7 @@ q:before, q:after {
     border:1px solid #999;
     border-radius:5px;
     z-index: 999;
+    min-width:300px;
 }
 .rdrMonthAndYearWrapper{
     height:auto;

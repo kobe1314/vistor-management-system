@@ -5,6 +5,7 @@ import 'isomorphic-fetch';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { Calendar } from 'react-date-range';
+import { showErrMsg } from '../tools/tools';
 
 class Registration extends Component {
 
@@ -35,7 +36,6 @@ class Registration extends Component {
         this.exportVisit = this.exportVisit.bind(this);
         this.saveVisitorInfo = this.saveVisitorInfo.bind(this);
         this.validate = this.validate.bind(this);
-        this.showErrMsg = this.showErrMsg.bind(this);
         this.showCalendar = this.showCalendar.bind(this);
         this.handleSelectDate = this.handleSelectDate.bind(this);
     }
@@ -55,71 +55,58 @@ class Registration extends Component {
         })
     }
 
-    showErrMsg(msg){
-        const innerDiv = `<div style="border-radius:5px;padding:12px 25px;font-size:14px;line-height:24px;color:#fff;align-self:center;background:rgba(0,0,0,0.6);">${msg}</div>`;
-        const divContainer = document.createElement('div');
-        divContainer.style = 'width:100%;height:100%;position:absolute;top:0;left:0;display:flex;justify-content:center;flex-direction:column;';
-        divContainer.id = 'errMsgContainer';
-        divContainer.innerHTML = innerDiv;
-        window.document.body.append(divContainer);
-        setTimeout(()=>{
-            const errMsgContainer = document.getElementById('errMsgContainer');
-            document.body.removeChild(errMsgContainer);
-        },2000);
-    }
-
     validate(){
         const reqData = this.state;
         if(reqData.visitName.length === 0){
-            this.showErrMsg('请输入访客登记者姓名！');
+            showErrMsg('请输入访客登记者姓名！');
             return false;
         }
         if(reqData.visitGenderType === ''){
-            this.showErrMsg('请选择访客登记者性别！');
+            showErrMsg('请选择访客登记者性别！');
             return false;
         }
         if(!/\d/.test(reqData.visitPersonNumber)){
-            this.showErrMsg('请输入有效访客数量！');
+            showErrMsg('请输入有效访客数量！');
             return false;
         }
         if(!/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(reqData.visitIdentityCardNumber)){
-            this.showErrMsg('请输入有效身份证号码！');
+            showErrMsg('请输入有效身份证号码！');
             return false;
         }
         if(reqData.visitCompany === ''){
-            this.showErrMsg('请输入单位名称！');
+            showErrMsg('请输入单位名称！');
             return false;
         }
         if(reqData.visitDepart === ''){
-            this.showErrMsg('请输入部门名称！');
+            showErrMsg('请输入部门名称！');
             return false;
         }
         if(reqData.visitCause === ''){
-            this.showErrMsg('请输入来访事由！');
+            showErrMsg('请输入来访事由！');
             return false;
         }
         if(reqData.visitPlateNumber === ''){
-            this.showErrMsg('请输入车牌号码！');
+            showErrMsg('请输入车牌号码！');
             return false;
         }
         if(!/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/.test(reqData.visitPhoneNumber)){
-            this.showErrMsg('请输入有效手机号！');
+            showErrMsg('请输入有效手机号！');
             return false;
         }
         if(!/\d{4}-\d{1,2}-\d{1,2}/.test(reqData.visitDate)){
-            this.showErrMsg('请输入有效来访时间！');
+            showErrMsg('请输入有效来访时间！');
             return false;
         }
         if(reqData.visitBelongings === ''){
-            this.showErrMsg('请输入访客携带物品！');
+            showErrMsg('请输入访客携带物品！');
             return false;
         }
         if(reqData.visitReceiver === ''){
-            this.showErrMsg('请输入接待者姓名！');
+            showErrMsg('请输入接待者姓名！');
             return false;
         }
         else if(reqData.visitTransactor === ''){
-            this.showErrMsg('请输入办理人姓名！');
+            showErrMsg('请输入办理人姓名！');
             return false;
         }
         return true;
@@ -210,11 +197,6 @@ class Registration extends Component {
     }
 
     render() {
-        // const selectionRange = {
-		// 	startDate: new Date(),
-		// 	endDate: new Date(),
-		// 	key: 'selection'
-		// }
         return (
             <div align="center" className="Registration">
                 <div className="Registration-table-edit-opertion">
