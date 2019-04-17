@@ -38,6 +38,16 @@ class RecordsTableFilter extends Component {
         this.changeAttendanceStatus = this.changeAttendanceStatus.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
         this.searchRequest = this.searchRequest.bind(this);
+        this.hideSelect = this.hideSelect.bind(this);
+    }
+
+    hideSelect(){
+        this.setState({
+            companyNameSelectDisplay:false,
+            attendanceStatusSelectDisplay:false,
+            startTimeshowCalendar:false,
+            endTimeshowCalendar:false
+        })
     }
 
     searchRequest(){
@@ -163,12 +173,15 @@ class RecordsTableFilter extends Component {
             <div className="table-filter">
                 <form>
                     <div className="form-group">
-                        <input type="text" readOnly placeholder="单位名称" className="ele-select" selectDisplayName="companyNameSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedCompanyName} />
+                        <input type="text" readOnly placeholder="单位名称" name="companyName" className="ele-select" selectDisplayName="companyNameSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedCompanyName} />
                         {this.state.companyNameSelectDisplay ?
                         <ul className="checkbox-select">
                             <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="0" textvalue="全部" type="checkbox" /> 全部</li>
-                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="1" textvalue="华为" type="checkbox" /> 华为</li>
-                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="2" textvalue="三星" type="checkbox" /> 三星</li>
+                            {this.state.response.companys.map((item, index)=>{
+                                return (
+                                    <li key={index} className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value={item.value} textvalue={item.name} type="checkbox" /> {item.name}</li>
+                                )
+                            })}
                         </ul>
                         :
                         ''
@@ -200,7 +213,7 @@ class RecordsTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" readOnly placeholder="考勤状态" className="ele-select" selectDisplayName="attendanceStatusSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedAttendanceStatus} />
+                        <input type="text" readOnly placeholder="考勤状态" name="attendanceStatus" className="ele-select" selectDisplayName="attendanceStatusSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedAttendanceStatus} />
                         {this.state.attendanceStatusSelectDisplay ?
                         <ul className="checkbox-select">
                             <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="0" textvalue="全部" type="radio" /> 全部</li>
