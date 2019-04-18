@@ -2,7 +2,7 @@ import {LOADING,SUCCESS,FAIL} from '../actions/status';
 import {FETCH_RECORD_STARTED, FETCH_RECORD_SUCCESS, FETCH_RECORD_FAIL} from '../actions/actionType';
 
 const initalState = {
-    status : '', 
+    status : '',
     records: [
         {
             attendanceIdentityCardNumber: '',

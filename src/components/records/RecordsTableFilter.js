@@ -2,6 +2,27 @@ import React, { Component } from 'react';
 import './tableFilter.css';
 import { Calendar } from 'react-date-range';
 import { showErrMsg } from '../tools/tools';
+import {FILTER_RECORD_API} from '../../actions/actionType';
+import { connect } from 'react-redux';
+
+const mapDispatherToProps = (dispatch) => {
+    return {
+        filterRecords: (req) => {
+            console.log('filter param', req);
+            dispatch({
+                type: FILTER_RECORD_API,
+                req
+            })
+        }
+    }
+}
+
+const mapStatusToProps = (state) => {
+    console.log('records mapStatusToProps:',state);
+    return {
+        data: state.records
+    }
+}
 
 class RecordsTableFilter extends Component {
     constructor(props) {
@@ -12,13 +33,13 @@ class RecordsTableFilter extends Component {
             selectedCompanyName:'',
             selectedAttendanceStatus:'',
             request:{
-                companyName:[],
+                companyName:[0],
                 cardId:'',
                 workType:'',
                 userName:'',
                 startTime:'',
                 endTime:'',
-                attendanceStatus:''
+                attendanceStatus:'0'
             },
             response:{
                 companys:[
@@ -55,6 +76,7 @@ class RecordsTableFilter extends Component {
         if(request.cardId !== '' && !/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(request.cardId)){
             showErrMsg('请输入有效身份证号码！')
         }
+        this.props.filterRecords(this.state.request);
     }
 
     onInputChange(e){
@@ -238,4 +260,4 @@ class RecordsTableFilter extends Component {
     }
 }
 
-export default RecordsTableFilter;
+export default connect(mapStatusToProps,mapDispatherToProps )(RecordsTableFilter);

@@ -9,8 +9,6 @@ export default function(state=defaultState, action) {
     switch (action.type) {
         case CHANGE_BREAD: {
             const { breadText } = action.payload;
-            console.log('--content--:',breadText);
-            console.log('--state--:', state);
             return {
                 breadText
             };

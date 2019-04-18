@@ -2,6 +2,7 @@ import {
     FETCH_RECORD_STARTED,
     FETCH_RECORD_SUCCESS,
     FETCH_RECORD_FAIL,
+    FILTER_RECORD_API,
     CHANGE_BREAD,
     FETCH_SUMMARIES_STARTED,
     FETCH_SUMMARIES_SUCCES,
@@ -21,6 +22,11 @@ const fetchRecordSuccess = (result) => ({
 const fetchRecordFail = (error) => ({
     type: FETCH_RECORD_FAIL,
     error
+})
+
+const fetchFilterRecords = (req) => ({
+    type: FILTER_RECORD_API,
+    req
 })
 
 const fetchSummariesStarted = () => ({
@@ -48,6 +54,7 @@ export {
     fetchRecordStarted,
     fetchRecordSuccess,
     fetchRecordFail,
+    fetchFilterRecords,
     changeBread,
     fetchSummariesStarted,
     fetchSummariesSuccess,
