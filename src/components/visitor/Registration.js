@@ -5,6 +5,7 @@ import 'isomorphic-fetch';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { Calendar } from 'react-date-range';
+import * as rdrLocales from 'react-date-range/dist/locale';
 import { showErrMsg } from '../tools/tools';
 
 class Registration extends Component {
@@ -289,7 +290,7 @@ class Registration extends Component {
                                 <td colSpan="5">
                                     <input className="Registration-table-edit-input" name="visitDate" readOnly type="text" onClick={this.showCalendar} value={this.state.visitDate}/>
                                     {this.state.showCalendar?
-                                        <Calendar style={{position:'absolute'}} date={new Date()} onChange={this.handleSelectDate} />
+                                        <Calendar style={{position:'absolute'}} locale={rdrLocales['zhCN']} date={new Date()} onChange={this.handleSelectDate} />
                                         :
                                         ''
                                     }

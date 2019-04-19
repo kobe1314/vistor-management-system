@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
 import RecordsTableFilter from './RecordsTableFilter';
 import Pagination from '../pagination/Pagination'
-import '../../assets/css/content.css';
 import {LOADING} from '../../actions/status';
 import ReactLoading from 'react-loading';
+import '../../assets/css/content.css';
 
 class Records extends Component {
     constructor(props) {
@@ -42,21 +42,28 @@ class Records extends Component {
                         </thead>
                         <tbody>
                            {
-                              isLoading === LOADING ? <ReactLoading type={'spin'} color="#FF4500" />:  datas.map((user, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index}</td>
-                                        <td>{user.attendanceCompany}</td>
-                                        <td>{user.attendanceName}</td>
-                                        <td>{user.attendanceDepart}</td>
-                                        <td>{user.attendanceIdentityCardNumber}</td>
-                                        <td>{user.attendanceAccessCardNumber}</td>
-                                        <td>{user.attendanceDate}</td>
-                                        <td>{user.attendanceDuration}</td>
-                                        <td>{user.attendanceStatus === '1'? '正常': '异常'}</td>
-                                    </tr>
-                                )
-                               })
+                                isLoading === LOADING ?
+                                <tr>
+                                    <td id="loadingTd">
+                                        <ReactLoading id="loading" type={'spin'} color="#FF0000"/>
+                                    </td>
+                                </tr>
+                                :
+                                datas.map((user, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{index}</td>
+                                            <td>{user.attendanceCompany}</td>
+                                            <td>{user.attendanceName}</td>
+                                            <td>{user.attendanceDepart}</td>
+                                            <td>{user.attendanceIdentityCardNumber}</td>
+                                            <td>{user.attendanceAccessCardNumber}</td>
+                                            <td>{user.attendanceDate}</td>
+                                            <td>{user.attendanceDuration}</td>
+                                            <td>{user.attendanceStatus === '1'? '正常': '异常'}</td>
+                                        </tr>
+                                    )
+                                })
                            }
                         </tbody>
                     </table>

@@ -6,10 +6,10 @@ import {fetchRecordsAPI} from '../services/enhancedRequest';
 function* fetchSummaries(action) {
     const apiUrl = '/vr/queryMonthlyAttendance';
     try{
-        console.log('records acton :',action);
+        console.log('fetchSummaries acton :',action);
         yield put({type:FETCH_SUMMARIES_STARTED});
         // call one api
-        const response = yield call(fetchRecordsAPI,apiUrl);
+        const response = yield call(fetchRecordsAPI,apiUrl,action.params);
         console.log('summaries response :',response);
         // yield delay(2000);
         yield put({type: FETCH_SUMMARIES_SUCCES, result : response})

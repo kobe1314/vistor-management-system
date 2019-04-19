@@ -11,7 +11,6 @@ class Summaries extends Component {
         super(props);
         this.state = {};
     }
-    
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
         this.props.fetchSummaries();
@@ -74,50 +73,57 @@ class Summaries extends Component {
                         </thead>
                         <tbody>
                         {
-                              isLoading === LOADING ? <ReactLoading type={'spin'} color="#FF4500" />:  datas.map((user, index) => {
-                                return (
-                                    <tr key={index}>
-                                        <td>{index}</td>
-                                        <td>{user.attendanceCompany}</td>
-                                        <td>{user.attendanceDate}</td>
-                                        <td>{user.attendanceName}</td>
-                                        <td>{user.attendanceDepart}</td>
-                                        <td>{user.attendanceIdentityCardNumber}</td>
-                                        <td>{user.attendanceAccessCardNumber}</td>
-                                        <td>{user.first}</td>
-                                        <td>{user.second}</td>
-                                        <td>{user.third}</td>
-                                        <td>{user.fourth}</td>
-                                        <td>{user.fifth}</td>
-                                        <td>{user.sixth}</td>
-                                        <td>{user.seventh}</td>
-                                        <td>{user.eighth}</td>
-                                        <td>{user.ninth}</td>
-                                        <td>{user.tenth}</td>
-                                        <td>{user.eleventh}</td>
-                                        <td>{user.twelfth}</td>
-                                        <td>{user.thirteenth}</td>
-                                        <td>{user.fourteenth}</td>
-                                        <td>{user.fifteenth}</td>
-                                        <td>{user.sixteenth}</td>
-                                        <td>{user.seventeenth}</td>
-                                        <td>{user.eighteenth}</td>
-                                        <td>{user.nineteenth}</td>
-                                        <td>{user.twentieth}</td>
-                                        <td>{user.twentyfirst}</td>
-                                        <td>{user.twentysecond}</td>
-                                        <td>{user.twentythird}</td>
-                                        <td>{user.twentyfourth}</td>
-                                        <td>{user.twentyfifth}</td>
-                                        <td>{user.twentysixth}</td>
-                                        <td>{user.twentyseventh}</td>
-                                        <td>{user.twentyeighth}</td>
-                                        <td>{user.twentyninth}</td>
-                                        <td>{user.thirtieth}</td>
-                                        <td>{user.thirtyfirst}</td>
-                                        <td>{user.attendanceDay}</td>
-                                    </tr>
-                                )
+                            isLoading === LOADING ?
+                                <tr>
+                                    <td id="loadingTd">
+                                        <ReactLoading id="loading" type={'spin'} color="#FF0000"/>
+                                    </td>
+                                </tr>
+                                :
+                                datas.map((user, index) => {
+                                    return (
+                                        <tr key={index}>
+                                            <td>{index}</td>
+                                            <td>{user.attendanceCompany}</td>
+                                            <td>{user.attendanceDate}</td>
+                                            <td>{user.attendanceName}</td>
+                                            <td>{user.attendanceDepart}</td>
+                                            <td>{user.attendanceIdentityCardNumber}</td>
+                                            <td>{user.attendanceAccessCardNumber}</td>
+                                            <td>{user.first}</td>
+                                            <td>{user.second}</td>
+                                            <td>{user.third}</td>
+                                            <td>{user.fourth}</td>
+                                            <td>{user.fifth}</td>
+                                            <td>{user.sixth}</td>
+                                            <td>{user.seventh}</td>
+                                            <td>{user.eighth}</td>
+                                            <td>{user.ninth}</td>
+                                            <td>{user.tenth}</td>
+                                            <td>{user.eleventh}</td>
+                                            <td>{user.twelfth}</td>
+                                            <td>{user.thirteenth}</td>
+                                            <td>{user.fourteenth}</td>
+                                            <td>{user.fifteenth}</td>
+                                            <td>{user.sixteenth}</td>
+                                            <td>{user.seventeenth}</td>
+                                            <td>{user.eighteenth}</td>
+                                            <td>{user.nineteenth}</td>
+                                            <td>{user.twentieth}</td>
+                                            <td>{user.twentyfirst}</td>
+                                            <td>{user.twentysecond}</td>
+                                            <td>{user.twentythird}</td>
+                                            <td>{user.twentyfourth}</td>
+                                            <td>{user.twentyfifth}</td>
+                                            <td>{user.twentysixth}</td>
+                                            <td>{user.twentyseventh}</td>
+                                            <td>{user.twentyeighth}</td>
+                                            <td>{user.twentyninth}</td>
+                                            <td>{user.thirtieth}</td>
+                                            <td>{user.thirtyfirst}</td>
+                                            <td>{user.attendanceDay}</td>
+                                        </tr>
+                                    )
                                })
                            }
                         </tbody>

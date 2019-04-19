@@ -30,3 +30,14 @@
     border-bottom:1px solid #ddd;
     color:#333;
 }
+#loadingTd{
+    background:#fff;
+    border:0 none;
+}
+#loading{
+    width:64px;
+    height:64px;
+    position:fixed;
+    top:50%;
+    left:50%;
+}
