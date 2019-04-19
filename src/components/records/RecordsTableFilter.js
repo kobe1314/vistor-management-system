@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
+import {fetchRecordAPI} from '../../actions/action';
 import './tableFilter.css';
 import { Calendar } from 'react-date-range';
 import { showErrMsg } from '../tools/tools';
-import {FILTER_RECORD_API} from '../../actions/actionType';
 import { connect } from 'react-redux';
 
 const mapDispatherToProps = (dispatch) => {
     return {
-        filterRecords: (req) => {
-            console.log('filter param', req);
-            dispatch({
-                type: FILTER_RECORD_API,
-                req
-            })
+        filterRecords: (params) => {
+            console.log('filter param', params);
+            dispatch(fetchRecordAPI(params))
         }
     }
 }
@@ -30,24 +27,21 @@ class RecordsTableFilter extends Component {
         this.state = {
             companyNameSelectDisplay:false,
             attendanceStatusSelectDisplay:false,
-            selectedCompanyName:'',
+            // selectedCompanyName:'',
             selectedAttendanceStatus:'',
-            request:{
-                companyName:[0],
-                cardId:'',
-                workType:'',
-                userName:'',
-                startTime:'',
-                endTime:'',
-                attendanceStatus:'0'
-            },
+            companyName:'',
+            cardId:'',
+            workType:'',
+            userName:'',
+            startTime:'',
+            endTime:'',
+            attendanceStatus:'',
             response:{
                 companys:[
-                    {value:'1',name:'华为'},
-                    {value:'2',name:'三星'}
+                    {value:'1',name:'中软国际'},
+                    {value:'2',name:'阿里巴巴'}
                 ]
             },
-            attendanceStatus: 1,
             startTimeshowCalendar:false,
             endTimeshowCalendar:false
          };
@@ -72,19 +66,26 @@ class RecordsTableFilter extends Component {
     }
 
     searchRequest(){
-        const request = this.state.request;
-        if(request.cardId !== '' && !/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(request.cardId)){
+        const { cardId,companyName,workType, userName, startTime, endTime, attendanceStatus} = this.state;
+        if(cardId !== '' && !/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(cardId)){
             showErrMsg('请输入有效身份证号码！')
         }
-        this.props.filterRecords(this.state.request);
+        const params = {
+            'company':companyName,
+            'idCardNumber':cardId,
+            'profession':workType,
+            'name':userName,
+            'startDate':startTime,
+            'endDate':endTime,
+            'status':attendanceStatus
+        } 
+        this.props.filterRecords(params);
     }
 
     onInputChange(e){
         const inputName = e.currentTarget.attributes.inputName.value;
-        let request = this.state.request;
-        request[inputName] = e.currentTarget.value
         this.setState({
-            request:request
+            [inputName]:e.currentTarget.value
         })
     }
 
@@ -96,43 +97,14 @@ class RecordsTableFilter extends Component {
     }
 
     changeCompanyName(e){
-        let request = this.state.request;
-        let selectedCompanyName = this.state.selectedCompanyName;
-        let setVal = new Set();
-        let setName = new Set();
-        const val = e.currentTarget.value;
-        const name = e.currentTarget.attributes.textvalue.textContent;
-        request.companyName.forEach((i)=>{
-            setVal.add(i);
-        })
-        selectedCompanyName.split('/').forEach((i)=>{
-            setName.add(i);
-        })
-        if(e.currentTarget.checked){
-            setName.add(name);
-            setVal.add(val);
-        }else{
-            setName.delete(name);
-            setVal.delete(val);
-        }
-        request.companyName=Array.from(setVal);
-        selectedCompanyName = Array.from(setName).join('/');
-        this.setState({
-            request:request,
-            selectedCompanyName:selectedCompanyName
-        })
+        let eleTxt = e.currentTarget.attributes.textvalue.value;
+        this.setState({companyName:eleTxt,companyNameSelectDisplay:false})
     }
 
     changeAttendanceStatus(e){
-        let request = this.state.request;
         let eleVal = e.currentTarget.value;
         let eleTxt = e.currentTarget.attributes.textvalue.value;
-        request.attendanceStatus = eleVal;
-        this.setState({
-            request:request,
-            selectedAttendanceStatus:eleTxt,
-            attendanceStatusSelectDisplay:false
-        })
+        this.setState({attendanceStatus:eleVal,selectedAttendanceStatus:eleTxt,attendanceStatusSelectDisplay:false})
     }
 
     showCalendar(e){
@@ -151,54 +123,33 @@ class RecordsTableFilter extends Component {
     }
 
     handleSelectStartDate(date){
-        date = new Date(date);
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDate();
-        this.setState({
-            request:{
-                cardId:this.state.request.cardId,
-                workType:this.state.request.workType,
-                userName:this.state.request.userName,
-                attendanceStatus:this.state.request.attendanceStatus,
-                startTime:`${year}-${month}-${day}`,
-                endTime:this.state.request.endTime,
-                companyName:this.state.request.companyName
-            },
-            startTimeshowCalendar:false,
-            endTimeshowCalendar:false
-        })
+        const startTime = this.handleDate(date);
+        this.setState({startTime,startTimeshowCalendar:false})
     }
 
     handleSelectEndDate(date){
+        const endTime = this.handleDate(date);
+        this.setState({endTime,endTimeshowCalendar:false})
+    }
+
+    handleDate = (date) => {
         date = new Date(date);
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
-        this.setState({
-            request:{
-                cardId:this.state.request.cardId,
-                workType:this.state.request.workType,
-                userName:this.state.request.userName,
-                attendanceStatus:this.state.request.attendanceStatus,
-                startTime:this.state.request.startTime,
-                endTime:`${year}-${month}-${day}`,
-                companyName:this.state.request.companyName
-            },
-            startTimeshowCalendar:false,
-            endTimeshowCalendar:false
-        })
+        return  `${year}-${month}-${day}`;
     }
 
     render() {
+        console.log(this.state.startTimeshowCalendar);
         return (
             <div className="table-filter">
                 <form>
                     <div className="form-group">
-                        <input type="text" readOnly placeholder="单位名称" name="companyName" className="ele-select" selectDisplayName="companyNameSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedCompanyName} />
+                        <input type="text" readOnly placeholder="单位名称" name="companyName" className="ele-select" selectDisplayName="companyNameSelectDisplay" onClick={this.checkBoxSelect} value={this.state.companyName} />
                         {this.state.companyNameSelectDisplay ?
                         <ul className="checkbox-select">
-                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="0" textvalue="全部" type="checkbox" /> 全部</li>
+                            <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="0" textvalue="" type="checkbox" /> 全部</li>
                             {this.state.response.companys.map((item, index)=>{
                                 return (
                                     <li key={index} className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value={item.value} textvalue={item.name} type="checkbox" /> {item.name}</li>
@@ -219,7 +170,7 @@ class RecordsTableFilter extends Component {
                         <input type="text" placeholder="姓名" value={this.state.userName} inputName="userName" onChange={this.onInputChange} />
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="开始时间" value={this.state.request.startTime} readOnly onClick={this.showCalendar} name="startTime" />
+                        <input type="text" placeholder="开始时间" value={this.state.startTime} readOnly onClick={this.showCalendar} name="startTime" />
                         {this.state.startTimeshowCalendar?
                             <Calendar style={{position:'absolute'}} date={new Date()} onChange={this.handleSelectStartDate} />
                             :
@@ -227,7 +178,7 @@ class RecordsTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="结束时间" value={this.state.request.endTime} readOnly onClick={this.showCalendar} name="endTime"  />
+                        <input type="text" placeholder="结束时间" value={this.state.endTime} readOnly onClick={this.showCalendar} name="endTime"  />
                         {this.state.endTimeshowCalendar?
                             <Calendar style={{position:'absolute'}} date={new Date()} onChange={this.handleSelectEndDate} />
                             :
@@ -238,9 +189,9 @@ class RecordsTableFilter extends Component {
                         <input type="text" readOnly placeholder="考勤状态" name="attendanceStatus" className="ele-select" selectDisplayName="attendanceStatusSelectDisplay" onClick={this.checkBoxSelect} value={this.state.selectedAttendanceStatus} />
                         {this.state.attendanceStatusSelectDisplay ?
                         <ul className="checkbox-select">
-                            <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="0" textvalue="全部" type="radio" /> 全部</li>
+                            <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="" textvalue="全部" type="radio" /> 全部</li>
                             <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="1" textvalue="正常" type="radio" /> 正常</li>
-                            <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="2" textvalue="缺勤" type="radio" /> 缺勤</li>
+                            <li className="checkbox-select-item"><input name="status" onChange={this.changeAttendanceStatus} value="0" textvalue="缺勤" type="radio" /> 缺勤</li>
                         </ul>
                         :
                         ''

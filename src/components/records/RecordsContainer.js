@@ -1,12 +1,11 @@
-import {FETCH_RECORD_API} from '../../actions/actionType';
+import {fetchRecordAPI} from '../../actions/action';
 import Records from './Records';
 import { connect } from 'react-redux';
+
 const mapDispatherToProps = (dispatch) => {
     return {
         fetchRecords: () => {
-            dispatch({
-                type: FETCH_RECORD_API
-            })
+            dispatch(fetchRecordAPI())
         }
     }
 }
@@ -17,7 +16,5 @@ const mapStatusToProps = (state) => {
         data: state.records
     }
 }
-
-
 
 export default connect(mapStatusToProps,mapDispatherToProps )(Records);

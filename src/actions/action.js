@@ -2,7 +2,8 @@ import {
     FETCH_RECORD_STARTED,
     FETCH_RECORD_SUCCESS,
     FETCH_RECORD_FAIL,
-    FILTER_RECORD_API,
+    // FILTER_RECORD_API,
+    FETCH_RECORD_API,
     CHANGE_BREAD,
     FETCH_SUMMARIES_STARTED,
     FETCH_SUMMARIES_SUCCES,
@@ -10,9 +11,15 @@ import {
 } from './actionType';
 
 
+const fetchRecordAPI = (params) => ({
+    type: FETCH_RECORD_API,
+    params
+})
+
 const fetchRecordStarted = () => ({
     type: FETCH_RECORD_STARTED
 })
+
 
 const fetchRecordSuccess = (result) => ({
     type: FETCH_RECORD_SUCCESS,
@@ -24,10 +31,10 @@ const fetchRecordFail = (error) => ({
     error
 })
 
-const fetchFilterRecords = (req) => ({
-    type: FILTER_RECORD_API,
-    req
-})
+// const fetchFilterRecords = (req) => ({
+//     type: FILTER_RECORD_API,
+//     req
+// })
 
 const fetchSummariesStarted = () => ({
     type: FETCH_SUMMARIES_STARTED
@@ -54,9 +61,10 @@ export {
     fetchRecordStarted,
     fetchRecordSuccess,
     fetchRecordFail,
-    fetchFilterRecords,
+    // fetchFilterRecords,
     changeBread,
     fetchSummariesStarted,
     fetchSummariesSuccess,
-    fetchSummariesFail
+    fetchSummariesFail,
+    fetchRecordAPI
 }
