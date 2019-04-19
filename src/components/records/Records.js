@@ -53,7 +53,7 @@ class Records extends Component {
                                         <td>{user.attendanceAccessCardNumber}</td>
                                         <td>{user.attendanceDate}</td>
                                         <td>{user.attendanceDuration}</td>
-                                        <td>{user.attendanceStatus === '1'? '出勤': '缺勤'}</td>
+                                        <td>{user.attendanceStatus === '1'? '正常': '异常'}</td>
                                     </tr>
                                 )
                                })

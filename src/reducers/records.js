@@ -14,7 +14,12 @@ const initalState = {
             attendanceDuration: '',
             attendanceStatus:''
         }
-    ]
+    ],
+    count: {
+        total: 0,
+        attendance: 0,
+        absent: 0
+    }
 }
 
 const filterRecordsResponse = (state,resp) => {
@@ -33,7 +38,21 @@ const filterRecordsResponse = (state,resp) => {
         }
     })
 
-    return {...state, status: SUCCESS,records};
+    const attendanceNum = datas.filter(data => {
+        if(data.attendanceStatus === '1') {
+            return data;
+        }
+    })
+    
+    const absent = datas.length - attendanceNum.length;
+
+    const count = {
+        total: datas.length,
+        attendance: attendanceNum.length,
+        absent
+    }
+
+    return {...state, status: SUCCESS,records,count};
 
 }
 
