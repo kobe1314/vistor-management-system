@@ -16,7 +16,7 @@ const mapStatusToProps = (state) => {
     return {
         data: state.summaries
     }
-} 
+}
 
 
 

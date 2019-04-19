@@ -16,8 +16,7 @@ function* fetchSummaries(action) {
     } catch (error) {
         console.log(error);
         yield put({type: FETCH_SUMMARIES_FAIL, error})
-    }    
-    
+    }
 }
 
 function* summariesSaga() {

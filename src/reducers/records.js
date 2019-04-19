@@ -37,13 +37,11 @@ const filterRecordsResponse = (state,resp) => {
             attendanceStatus
         }
     })
-
     const attendanceNum = datas.filter(data => {
         if(data.attendanceStatus === '1') {
             return data;
         }
     })
-    
     const absent = datas.length - attendanceNum.length;
 
     const count = {
