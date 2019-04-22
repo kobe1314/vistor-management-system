@@ -43,7 +43,9 @@ class SummariesTableFilter extends Component {
 
     checkBoxSelect = () => {
         this.setState({
-            companyNameSelectDisplay:!this.state.companyNameSelectDisplay
+            companyNameSelectDisplay:!this.state.companyNameSelectDisplay,
+            startTimeshowCalendar:false,
+            endTimeshowCalendar:false
         })
     }
 
@@ -66,13 +68,17 @@ class SummariesTableFilter extends Component {
         const name = e.currentTarget.name;
         name === 'startTime' ? (
             this.setState({
-                startTimeshowCalendar:!this.state.startTimeshowCalendar
+                startTimeshowCalendar:!this.state.startTimeshowCalendar,
+                endTimeshowCalendar:false,
+                companyNameSelectDisplay:false
             })
         )
         :
         (
             this.setState({
-                endTimeshowCalendar:!this.state.endTimeshowCalendar
+                endTimeshowCalendar:!this.state.endTimeshowCalendar,
+                startTimeshowCalendar:false,
+                companyNameSelectDisplay:false
             })
         )
     }
@@ -92,7 +98,7 @@ class SummariesTableFilter extends Component {
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
-        return  `${year}-${month}-${day}`;
+        return  `${year}-${month+1}-${day}`;
     }
 
     render() {

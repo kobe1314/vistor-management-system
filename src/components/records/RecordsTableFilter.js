@@ -27,8 +27,6 @@ class RecordsTableFilter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            companyNameSelectDisplay:false,
-            attendanceStatusSelectDisplay:false,
             selectedAttendanceStatus:'',
             companyName:'',
             cardId:'',
@@ -43,6 +41,8 @@ class RecordsTableFilter extends Component {
                     {value:'2',name:'阿里巴巴'}
                 ]
             },
+            companyNameSelectDisplay:false,
+            attendanceStatusSelectDisplay:false,
             startTimeshowCalendar:false,
             endTimeshowCalendar:false
          };
@@ -83,8 +83,19 @@ class RecordsTableFilter extends Component {
 
     checkBoxSelect = (e) => {
         const displayName = e.currentTarget.attributes.selectdisplayname.value;
+        if(displayName === 'companyNameSelectDisplay'){
+            this.setState({
+                attendanceStatusSelectDisplay:false
+            })
+        }else if(displayName === 'attendanceStatusSelectDisplay'){
+            this.setState({
+                companyNameSelectDisplay:false
+            })
+        }
         this.setState({
-            [displayName]:!this.state[displayName]
+            [displayName]:!this.state[displayName],
+            startTimeshowCalendar:false,
+            endTimeshowCalendar:false
         })
     }
 
@@ -103,13 +114,19 @@ class RecordsTableFilter extends Component {
         const name = e.currentTarget.name;
         name === 'startTime' ? (
             this.setState({
-                startTimeshowCalendar:!this.state.startTimeshowCalendar
+                startTimeshowCalendar:!this.state.startTimeshowCalendar,
+                endTimeshowCalendar:false,
+                companyNameSelectDisplay:false,
+                attendanceStatusSelectDisplay:false
             })
         )
         :
         (
             this.setState({
-                endTimeshowCalendar:!this.state.endTimeshowCalendar
+                endTimeshowCalendar:!this.state.endTimeshowCalendar,
+                companyNameSelectDisplay:false,
+                attendanceStatusSelectDisplay:false,
+                startTimeshowCalendar:false
             })
         )
     }
@@ -129,7 +146,7 @@ class RecordsTableFilter extends Component {
         const year = date.getFullYear();
         const month = date.getMonth();
         const day = date.getDate();
-        return  `${year}-${month}-${day}`;
+        return  `${year}-${month+1}-${day}`;
     }
 
     render() {
