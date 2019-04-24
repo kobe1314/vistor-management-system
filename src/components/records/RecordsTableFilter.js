@@ -170,13 +170,13 @@ class RecordsTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="身份证" value={this.state.cardId} inputname="cardId" onChange={this.onInputChange} />
+                        <input type="text" placeholder="身份证" value={this.state.cardId} inputname="cardId" onChange={this.onInputChange}  onClick={this.hideSelect}/>
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="工种" value={this.state.workType} inputname="workType" onChange={this.onInputChange} />
+                        <input type="text" placeholder="工种" value={this.state.workType} inputname="workType" onChange={this.onInputChange} onClick={this.hideSelect}/>
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="姓名" value={this.state.userName} inputname="userName" onChange={this.onInputChange} />
+                        <input type="text" placeholder="姓名" value={this.state.userName} inputname="userName" onChange={this.onInputChange} onClick={this.hideSelect}/>
                     </div>
                     <div className="form-group">
                         <input type="text" placeholder="开始时间" value={this.state.startTime} readOnly onClick={this.showCalendar} name="startTime" />

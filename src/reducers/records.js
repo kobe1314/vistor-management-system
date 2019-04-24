@@ -23,7 +23,7 @@ const initalState = {
 }
 
 const filterRecordsResponse = (state,resp) => {
-    const datas = resp.result.data;
+    const datas = resp.result.data.content;
     const records = datas.map(data => {
         const {attendanceCompany, attendanceDepart, attendanceAccessCardNumber,attendanceDuration, attendanceStatus} = data;
         return {
