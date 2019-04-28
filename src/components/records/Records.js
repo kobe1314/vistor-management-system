@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Breadcrumb from '../breadcrumb/Breadcrumb';
 import RecordsTableFilter from './RecordsTableFilter';
-import Pagination from '../pagination/Pagination'
+// import Pagination from '../pagination/Pagination'
 import {LOADING} from '../../actions/status';
 import ReactLoading from 'react-loading';
 import '../../assets/css/content.css';
+import Pagination from '../pagination/PaginationContainer';
 
 class Records extends Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class Records extends Component {
     render() {
         const datas = this.props.data && this.props.data.records || [];
         const isLoading = this.props.data.status;
+        const totalPage = this.props.data.totalPages;
         return (
             <div className="right-content">
                 <Breadcrumb />
@@ -68,7 +70,7 @@ class Records extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination />
+                <Pagination  config={{pageCurr:1,totalPage}}/>
             </div>
         );
     }

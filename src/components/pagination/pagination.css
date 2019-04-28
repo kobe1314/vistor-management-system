@@ -1,21 +1,38 @@
-.pagination{
-    padding:0 1.6rem 1.6rem;
+.page-container:after {
+    content: '.';
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
 }
-.pagination ul{
-    display:flex;
-    justify-content: flex-end;
+.page-container {
+    zoom: 1
 }
-.pagination .page-btn{
-    text-align:center;
-    border:1px solid #ddd;
-    color:#0e90d2;
-    font-size:14px;
-    line-height:1.2;
-    padding:0.5em 1em;
-    margin:0 5px 5px 0;
+
+.page-container li {
+    list-style: none;
+    float: left;
+    padding: 0px 8px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
 }
-.pagination .page-btn.active{
-    color:#fff;
-    background:#0e90d2;
-    border-color:#0e90d2;
+
+.page-container li:last-child {
+    margin-right: 0px;
+}
+
+/*当前页样式*/
+.activePage {
+    color: #fff !important;
+    background: #54b0bd;
+    border-color: #54b0bd !important;
+}
+
+/*没有上一页和下一页时样式*/
+.nomore {
+    color: #b5b5b5 !important;
+    cursor: not-allowed !important;
 }

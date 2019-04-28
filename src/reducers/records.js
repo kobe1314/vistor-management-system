@@ -19,7 +19,8 @@ const initalState = {
         total: 0,
         attendance: 0,
         absent: 0
-    }
+    },
+    totalPages: 0
 }
 
 const filterRecordsResponse = (state,resp) => {
@@ -50,7 +51,9 @@ const filterRecordsResponse = (state,resp) => {
         absent
     }
 
-    return {...state, status: SUCCESS,records,count};
+    const totalPages = resp.result.data.totalPages;
+
+    return {...state, status: SUCCESS,records,count,totalPages};
 
 }
 

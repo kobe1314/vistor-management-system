@@ -71,7 +71,7 @@ module.exports = {
       "react/no-danger": 0, //防止使用危险的JSX属性
       "react/no-did-mount-set-state": 0, //防止在componentDidMount中使用setState
       "react/no-did-update-set-state": 1, //防止在componentDidUpdate中使用setState
-      "react/no-direct-mutation-state": 2, //防止this.state的直接变异
+      "react/no-direct-mutation-state": 0, //防止this.state的直接变异
       "react/no-multi-comp": 2, //防止每个文件有多个组件定义
       "react/no-set-state": 0, //防止使用setState
       "react/no-unknown-property": 2, //防止使用未知的DOM属性
