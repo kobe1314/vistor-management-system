@@ -1,6 +1,3 @@
-/**
- * Created By brand On 2018/2/2
- */
 import React, {Component} from 'react'
 import './pagination.css'
 
@@ -9,111 +6,93 @@ class Pagination extends Component {
         super(props)
         this.state = {
             currentPage: 1, //当前页码
-            groupCount: 5, //页码分组，显示7个页码，其余用省略号显示
-            startPage: 1,  //分组开始页码
-            totalPage:1 //总页数
+            groupCount: 7, //页码分组，显示7个页码，其余用省略号显示
+            startPage: 1  //分组开始页码
         }
         this.createPage = this.createPage.bind(this)
     }
 
-    componentDidMount() {
-        this.setState({
-            totalPage: this.props.pageConfig.totalPage
-        })
-        this.props.pageCallbackFn(this.state.currentPage)
-    }
+    // componentDidMount() {
+    //     this.setState({
+    //         totalPage: this.props.pageConfig.totalPage
+    //     })
+    //     this.props.pageCallbackFn(this.state.currentPage)
+    // }
 
     createPage() {
-        const {totalPage} = this.props.pageConfig;
+        //总页数
+        const {totalPage} = this.props.pageConfig || 1;
         const {currentPage, groupCount, startPage} = this.state;
         let pages = []
         //上一页
-        pages.push(<li className={currentPage === 1 ? 'nomore' : null} onClick={this.prePageHandeler.bind(this)}
-            key={0}
-                   >
-            上一页</li>)
+        pages.push(<li className={currentPage === 1 ? 'nomore' : null} onClick={this.goPrev.bind(this)} key={0}>上一页</li>)
 
         if (totalPage <= 10) {
             /*总页码小于等于10时，全部显示出来*/
             for (let i = 1; i <= totalPage; i++) {
-                pages.push(<li key={i} onClick={this.pageClick.bind(this, i)}
-                    className={currentPage === i ? 'activePage' : null}
-                           >{i}</li>)
+                pages.push(<li key={i} onClick={this.pageClick.bind(this, i)} className={currentPage === i ? 'activePage' : null}>{i}</li>)
             }
         } else {
             /*总页码大于10时，部分显示*/
-
-            //第一页
-            pages.push(<li className={currentPage === 1 ? 'activePage' : null} key={1}
-                onClick={this.pageClick.bind(this, 1)}
-                       >1</li>)
-
-            let pageLength = 0;
-            if (groupCount + startPage > totalPage) {
-                pageLength = totalPage
-            } else {
-                pageLength = groupCount + startPage;
-            }
-            //前面省略号(当当前页码比分组的页码大时显示省略号)
-            if (currentPage >= groupCount) {
-                pages.push(<li className="" key={-1}>···</li>)
-            }
-            //非第一页和最后一页显示
-            for (let i = startPage; i < pageLength; i++) {
-                if (i <= totalPage - 1 && i > 1) {
-                    pages.push(<li className={currentPage === i ? 'activePage' : null} key={i}
-                        onClick={this.pageClick.bind(this, i)}
-                               >{i}</li>)
+            for(let i = startPage;i < groupCount + startPage;i ++){
+                if(i <= totalPage - 2){
+                    pages.push(<li className={this.state.currentPage === i? 'activePage':''} key={i} onClick={this.pageClick.bind(this,i)}>{i}</li>)
                 }
             }
-            //后面省略号
-            if (totalPage - startPage >= groupCount + 1) {
-                pages.push(<li className="" key={-2}>···</li>)
+
+            // 分页中间的省略号
+            if(totalPage - startPage >= 9){
+                pages.push(<li className="ellipsis" key={-1}>···</li>)
             }
-            //最后一页
-            pages.push(<li className={currentPage === totalPage ? 'activePage' : null} key={totalPage}
-                onClick={this.pageClick.bind(this, totalPage)}
-                       >{totalPage}</li>)
+            // 倒数第一、第二页
+            pages.push(<li className={this.state.currentPage === totalPage -1 ? 'activePage':''} key={totalPage - 1} onClick={this.pageClick.bind(this,totalPage - 1)}>{totalPage -1}</li>)
+            pages.push(<li className={this.state.currentPage === totalPage ? 'activePage':''} key={totalPage} onClick={this.pageClick.bind(this,totalPage)}>{totalPage}</li>)
+
         }
         //下一页
-        pages.push(<li className={currentPage === totalPage ? 'nomore' : null}
-            onClick={this.nextPageHandeler.bind(this)}
-            key={totalPage + 1}
-                   >下一页</li>)
+        pages.push(<li className={currentPage === totalPage ? 'nomore' : null}  onClick={this.goNext.bind(this)}  key={totalPage + 1} >下一页</li>)
         return pages;
 
     }
 
     //页码点击
-    pageClick(currentPage) {
-        const {groupCount} = this.state
-        const getCurrentPage = this.props.pageCallbackFn;
-        //当 当前页码 大于 分组的页码 时，使 当前页 前面 显示 两个页码
-        if (currentPage >= groupCount) {
-            this.setState({
-                startPage: currentPage - 2
-            })
+    pageClick(currentPage,reset = false) {
+
+        const { groupCount } = this.state;
+        const { totalPage } = this.props.pageConfig
+
+        this.setState({currentPage});
+
+        // 处理下一页的情况
+        if(currentPage % groupCount === 1){
+            this.setState({startPage:currentPage})
         }
-        if (currentPage < groupCount) {
-            this.setState({
-                startPage: 1
-            })
+
+        // 处理上一页的情况
+        if(currentPage % groupCount === 0){
+            this.setState({startPage:currentPage - groupCount + 1})
         }
-        //第一页时重新设置分组的起始页
-        if (currentPage === 1) {
-            this.setState({
-                startPage: 1
-            })
+
+        // 点击最后两页的情况
+        if(totalPage - currentPage < 2){
+            this.setState({startPage:totalPage - groupCount})
         }
-        this.setState({
-            currentPage
-        })
-        //将当前页码返回父组件
-        getCurrentPage(currentPage)
+
+        // 选择每页条数后重新分页
+        if(reset === true){
+            this.setState({currentPage:1,startPage:1});
+        }
+
+        setTimeout(()=>{
+            // paging({
+            //     currentPage:this.state.currentPage,
+            //     totalPage:this.state.totalPage
+            // })
+        });
     }
 
     //上一页事件
-    prePageHandeler() {
+    goPrev() {
         let {currentPage} = this.state
         if (--currentPage === 0) {
             return false
@@ -122,14 +101,15 @@ class Pagination extends Component {
     }
 
     //下一页事件
-    nextPageHandeler() {
-        let {currentPage,totalPage} = this.state
-       // const {totalPage} = this.props.pageConfig;
+    goNext() {
+        let { currentPage } = this.state
+        const { totalPage} = this.props.pageConfig;
         if (++currentPage > totalPage) {
             return false
         }
         this.pageClick(currentPage)
     }
+
     render() {
         const pageList = this.createPage();
         return (

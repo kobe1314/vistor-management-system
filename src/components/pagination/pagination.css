@@ -36,3 +36,10 @@
     color: #b5b5b5 !important;
     cursor: not-allowed !important;
 }
+
+
+.ellipsis {
+	border: none !important;
+	margin: 0 10px;
+	cursor: default !important;
+}
