@@ -5,7 +5,7 @@ import RecordsTableFilter from './RecordsTableFilter';
 import {LOADING} from '../../actions/status';
 import ReactLoading from 'react-loading';
 import '../../assets/css/content.css';
-import Pagination from '../pagination/PaginationContainer';
+import Pagination from '../pagination/Pagination';
 
 class Records extends Component {
     constructor(props) {
@@ -70,7 +70,7 @@ class Records extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination  config={{pageCurr:1,totalPage}}/>
+                <Pagination pageConfig={{currentPage:1,totalPage}} pageCallbackFn={this.getCurrentPage}/>
             </div>
         );
     }
