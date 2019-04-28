@@ -82,13 +82,11 @@ class Pagination extends Component {
         if(reset === true){
             this.setState({currentPage:1,startPage:1});
         }
-
-        setTimeout(()=>{
-            // paging({
-            //     currentPage:this.state.currentPage,
-            //     totalPage:this.state.totalPage
-            // })
-        });
+        const parmas = {
+            pageNumber: currentPage-1,
+            pageSize: 20
+        }
+        this.props.fetchCurrentPageInfo(parmas);
     }
 
     //上一页事件

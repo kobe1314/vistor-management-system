@@ -15,7 +15,7 @@ class Records extends Component {
 
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
-        this.props.fetchRecords();
+        this.props.fetchRecords({pageNumber:0,pageSize:20});
         console.log(this.props);
     }
 
@@ -70,7 +70,7 @@ class Records extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination pageConfig={{currentPage:1,totalPage}} pageCallbackFn={this.getCurrentPage}/>
+                <Pagination pageConfig={{currentPage:1,totalPage}} fetchCurrentPageInfo={this.props.fetchRecords}/>
             </div>
         );
     }

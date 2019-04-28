@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 const mapDispatherToProps = (dispatch) => {
     return {
-        fetchRecords: () => {
-            dispatch(fetchRecordAPI())
+        fetchRecords: (params) => {
+            dispatch(fetchRecordAPI(params))
         }
     }
 }
