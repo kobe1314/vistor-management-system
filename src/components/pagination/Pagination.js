@@ -12,13 +12,6 @@ class Pagination extends Component {
         this.createPage = this.createPage.bind(this)
     }
 
-    // componentDidMount() {
-    //     this.setState({
-    //         totalPage: this.props.pageConfig.totalPage
-    //     })
-    //     this.props.pageCallbackFn(this.state.currentPage)
-    // }
-
     createPage() {
         //总页数
         const {totalPage} = this.props.pageConfig || 1;

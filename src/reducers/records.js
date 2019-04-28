@@ -20,7 +20,11 @@ const initalState = {
         attendance: 0,
         absent: 0
     },
-    totalPages: 0
+    pageInfo: {
+        totalPages: 0,
+        currentPage: 1,
+        showBeginIndex:0
+    }
 }
 
 const filterRecordsResponse = (state,resp) => {
@@ -51,9 +55,14 @@ const filterRecordsResponse = (state,resp) => {
         absent
     }
 
-    const totalPages = resp.result.data.totalPages;
+    const { totalPages, number }= resp.result.data;
+    const pageInfo = {
+        totalPage:totalPages,
+        currentPage:number,
+        showBeginIndex: number*20 //show number for per page
+    }
 
-    return {...state, status: SUCCESS,records,count,totalPages};
+    return {...state, status: SUCCESS,records,count,pageInfo};
 
 }
 

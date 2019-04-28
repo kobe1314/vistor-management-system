@@ -22,7 +22,7 @@ class Records extends Component {
     render() {
         const datas = this.props.data && this.props.data.records || [];
         const isLoading = this.props.data.status;
-        const totalPage = this.props.data.totalPages;
+        const { totalPage = 0, showBeginIndex } = this.props.data.pageInfo;
         return (
             <div className="right-content">
                 <Breadcrumb />
@@ -54,7 +54,7 @@ class Records extends Component {
                                 datas.map((user, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td>{index}</td>
+                                            <td>{showBeginIndex + index}</td>
                                             <td>{user.attendanceCompany}</td>
                                             <td>{user.attendanceName}</td>
                                             <td>{user.attendanceDepart}</td>
