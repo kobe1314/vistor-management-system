@@ -54,7 +54,7 @@ class Records extends Component {
                                 datas.map((user, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td>{showBeginIndex + index}</td>
+                                            <td>{showBeginIndex + index+1}</td>
                                             <td>{user.attendanceCompany}</td>
                                             <td>{user.attendanceName}</td>
                                             <td>{user.attendanceDepart}</td>

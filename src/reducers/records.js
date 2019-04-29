@@ -16,9 +16,9 @@ const initalState = {
         }
     ],
     count: {
-        total: 0,
-        attendance: 0,
-        absent: 0
+        totalNumber: 0,
+        totalNormalNumber: 0,
+        totalAbnormalNumber: 0
     },
     pageInfo: {
         totalPages: 0,
@@ -28,7 +28,7 @@ const initalState = {
 }
 
 const filterRecordsResponse = (state,resp) => {
-    const datas = resp.result.data.content;
+    const datas = resp.result.data.page.content;
     const records = datas.map(data => {
         const {attendanceCompany, attendanceDepart, attendanceAccessCardNumber,attendanceDuration, attendanceStatus} = data;
         return {
@@ -42,20 +42,16 @@ const filterRecordsResponse = (state,resp) => {
             attendanceStatus
         }
     })
-    const attendanceNum = datas.filter(data => {
-        if(data.attendanceStatus === '1') {
-            return data;
-        }
-    })
-    const absent = datas.length - attendanceNum.length;
+
+    const {totalNumber, totalNormalNumber,totalAbnormalNumber} = resp.result.data;
 
     const count = {
-        total: datas.length,
-        attendance: attendanceNum.length,
-        absent
+        totalNumber,
+        totalNormalNumber,
+        totalAbnormalNumber
     }
 
-    const { totalPages, number }= resp.result.data;
+    const { totalPages, number }= resp.result.data.page;
     const pageInfo = {
         totalPage:totalPages,
         currentPage:number,

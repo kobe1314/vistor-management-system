@@ -56,6 +56,7 @@ button .iconfont{
 }
 .total{
     display:flex;
+    margin-top:15px;
 }
 .total .form-group{
     width:auto;

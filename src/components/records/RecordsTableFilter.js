@@ -63,13 +63,13 @@ class RecordsTableFilter extends Component {
             showErrMsg('请输入有效身份证号码！')
         }
         const params = {
-            'company':companyName,
+            'company':companyName !== '全部' ? companyName: '',
             'idCardNumber':cardId,
             'profession':workType,
             'name':userName,
             'startDate':startTime,
             'endDate':endTime,
-            'status':attendanceStatus
+            'status':attendanceStatus !== '全部' ? attendanceStatus: ''
         }
         this.props.filterRecords(params);
     }
@@ -107,6 +107,7 @@ class RecordsTableFilter extends Component {
     changeAttendanceStatus = (e) => {
         let eleVal = e.currentTarget.value;
         let eleTxt = e.currentTarget.attributes.textvalue.value;
+        debugger;
         this.setState({attendanceStatus:eleVal,selectedAttendanceStatus:eleTxt,attendanceStatusSelectDisplay:false})
     }
 
@@ -211,9 +212,9 @@ class RecordsTableFilter extends Component {
                     </div>
                 </form>
                 <div className="total">
-                    <div className="form-group">出勤总人数:{this.props.data.count.total}</div>
-                    <div className="form-group">正常:{this.props.data.count.attendance}</div>
-                    <div className="form-group">异常:{this.props.data.count.absent}</div>
+                    <div className="form-group">出勤总人数:{this.props.data.count.totalNumber}</div>
+                    <div className="form-group">正常:{this.props.data.count.totalNormalNumber}</div>
+                    <div className="form-group">异常:{this.props.data.count.totalAbnormalNumber}</div>
                 </div>
             </div>
         );
