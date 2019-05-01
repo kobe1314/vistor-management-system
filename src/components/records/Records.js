@@ -10,13 +10,28 @@ import Pagination from '../pagination/Pagination';
 class Records extends Component {
     constructor(props) {
         super(props);
-        this.state = {  };
+        this.state = {
+            company:'' ,
+            idCardNumber:'',
+            profession:'',
+            name:'',
+            startDate:'',
+            endDate:'',
+            status: '',
+            pageNumber: 0,
+            pageSize: 20
+        }
     }
 
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
         this.props.fetchRecords({pageNumber:0,pageSize:20});
         console.log(this.props);
+    }
+
+    fetchRecordsAPI = (params) => {
+        this.setState({...params});
+        this.props.fetchRecords({...this.state,...params}); 
     }
 
     render() {
@@ -26,7 +41,7 @@ class Records extends Component {
         return (
             <div className="right-content">
                 <Breadcrumb />
-                <RecordsTableFilter />
+                <RecordsTableFilter fetchRecordsAPI={this.fetchRecordsAPI} />
                 <div className="page-content page-records">
                     <table>
                         <thead>
@@ -70,7 +85,7 @@ class Records extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.props.fetchRecords}/>
+                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.fetchRecordsAPI}/>
             </div>
         );
     }

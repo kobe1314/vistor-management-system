@@ -16,10 +16,11 @@ const mapDispatherToProps = (dispatch) => {
     }
 }
 
-const mapStatusToProps = (state) => {
+const mapStatusToProps = (state, ownProps) => {
     console.log('records mapStatusToProps:',state);
     return {
-        data: state.records
+        data: state.records,
+        fetchRecordsAPI:ownProps.fetchRecordsAPI
     }
 }
 
@@ -69,9 +70,11 @@ class RecordsTableFilter extends Component {
             'name':userName,
             'startDate':startTime,
             'endDate':endTime,
-            'status':attendanceStatus !== '全部' ? attendanceStatus: ''
+            'status':attendanceStatus !== '全部' ? attendanceStatus: '',
+            'pageNumber':0
         }
-        this.props.filterRecords(params);
+        // this.props.filterRecords(params);
+        this.props.fetchRecordsAPI(params);
     }
 
     onInputChange = (e) => {
