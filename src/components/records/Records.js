@@ -22,7 +22,7 @@ class Records extends Component {
     render() {
         const datas = this.props.data && this.props.data.records || [];
         const isLoading = this.props.data.status;
-        const { totalPage = 0, showBeginIndex } = this.props.data.pageInfo;
+        const { totalPage = 0, showBeginIndex,currentPage } = this.props.data.pageInfo;
         return (
             <div className="right-content">
                 <Breadcrumb />
@@ -70,7 +70,7 @@ class Records extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination pageConfig={{currentPage:1,totalPage}} fetchCurrentPageInfo={this.props.fetchRecords}/>
+                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.props.fetchRecords}/>
             </div>
         );
     }

@@ -54,7 +54,7 @@ const filterRecordsResponse = (state,resp) => {
     const { totalPages, number }= resp.result.data.page;
     const pageInfo = {
         totalPage:totalPages,
-        currentPage:number,
+        currentPage:number+1,
         showBeginIndex: number*20 //show number for per page
     }
 

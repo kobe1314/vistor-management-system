@@ -5,17 +5,18 @@ class Pagination extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            currentPage: 1, //当前页码
+            // currentPage: 1, //当前页码
             groupCount: 7, //页码分组，显示7个页码，其余用省略号显示
             startPage: 1  //分组开始页码
         }
         this.createPage = this.createPage.bind(this)
     }
 
+
     createPage() {
         //总页数
-        const {totalPage} = this.props.pageConfig || 1;
-        const {currentPage, groupCount, startPage} = this.state;
+        const {totalPage, currentPage} = this.props.pageConfig || 1;
+        const {groupCount, startPage} = this.state;
         let pages = []
         //上一页
         pages.push(<li className={currentPage === 1 ? 'nomore' : null} onClick={this.goPrev.bind(this)} key={0}>上一页</li>)
@@ -54,7 +55,7 @@ class Pagination extends Component {
         const { groupCount } = this.state;
         const { totalPage } = this.props.pageConfig
 
-        this.setState({currentPage});
+        // this.setState({currentPage});
 
         // 处理下一页的情况
         if(currentPage % groupCount === 1){
@@ -73,7 +74,8 @@ class Pagination extends Component {
 
         // 选择每页条数后重新分页
         if(reset === true){
-            this.setState({currentPage:1,startPage:1});
+            // this.setState({currentPage:1,startPage:1});
+            this.setState({startPage:1});
         }
         const parmas = {
             pageNumber: currentPage-1,
@@ -84,7 +86,8 @@ class Pagination extends Component {
 
     //上一页事件
     goPrev() {
-        let {currentPage} = this.state
+        // let {currentPage} = this.state
+        let {currentPage} = this.props.pageConfig;
         if (--currentPage === 0) {
             return false
         }
@@ -93,8 +96,8 @@ class Pagination extends Component {
 
     //下一页事件
     goNext() {
-        let { currentPage } = this.state
-        const { totalPage} = this.props.pageConfig;
+        // let { currentPage } = this.state;
+        let { totalPage, currentPage} = this.props.pageConfig;
         if (++currentPage > totalPage) {
             return false
         }
