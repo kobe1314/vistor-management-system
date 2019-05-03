@@ -17,10 +17,16 @@ class Summaries extends Component {
         console.log(this.props);
     }
 
+    fetchSummariesAPI = (params) => {
+        this.setState({...params});
+        this.props.fetchSummaries({...this.state,...params}); 
+    }
+
     render() {
 
         const datas = this.props.data && this.props.data.summaries || [];
         const isLoading = this.props.data.status;
+        const { totalPage = 0, showBeginIndex,currentPage } = this.props.data.pageInfo;
         console.log('datas:',datas);
         return (
             <div className="right-content">
@@ -83,7 +89,7 @@ class Summaries extends Component {
                                 datas.map((user, index) => {
                                     return (
                                         <tr key={index}>
-                                            <td>{index}</td>
+                                            <td>{showBeginIndex + index+1}</td>
                                             <td>{user.attendanceCompany}</td>
                                             <td>{user.attendanceDate}</td>
                                             <td>{user.attendanceName}</td>
@@ -129,7 +135,7 @@ class Summaries extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination />
+                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.fetchSummariesAPI}/>
             </div>
         );
     }

@@ -17,7 +17,7 @@ const mapDispatherToProps = (dispatch) => {
 const mapStatusToProps = (state) => {
     console.log('records mapStatusToProps:',state);
     return {
-        data: state.records
+        data: state.summaries
     }
 }
 
@@ -141,9 +141,9 @@ class SummariesTableFilter extends Component {
                     </div>
                 </form>
                 <div className="total">
-                    <div className="form-group">出勤总人数:20</div>
-                    <div className="form-group">正常:16</div>
-                    <div className="form-group">异常:4</div>
+                    <div className="form-group">出勤总人数:{this.props.data.count.totalNumber}</div>
+                    <div className="form-group">正常:{this.props.data.count.totalNormalNumber}</div>
+                    <div className="form-group">异常:{this.props.data.count.totalAbnormalNumber}</div>
                 </div>
             </div>
         );

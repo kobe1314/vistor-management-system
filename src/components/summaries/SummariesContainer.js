@@ -1,12 +1,10 @@
-import {FETCH_SUMMARIES_API} from '../../actions/actionType';
+import {fetchSummariesAPI} from '../../actions/action';
 import Summaries from './Summaries';
 import { connect } from 'react-redux';
 const mapDispatherToProps = (dispatch) => {
     return {
-        fetchSummaries: () => {
-            dispatch({
-                type: FETCH_SUMMARIES_API
-            })
+        fetchSummaries: (params) => {
+            dispatch(fetchSummariesAPI(params))
         }
     }
 }

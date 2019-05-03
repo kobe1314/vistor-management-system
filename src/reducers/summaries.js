@@ -52,58 +52,87 @@ const initalState = {
         thirtieth:'',
         thirtyfirst: '',
         attendanceDay: ''
-    }]
+    }],
+    count: {
+        totalNumber: 0,
+        totalNormalNumber: 0,
+        totalAbnormalNumber: 0
+    },
+    pageInfo: {
+        totalPages: 0,
+        currentPage: 1,
+        showBeginIndex:0
+    }
 }
 
 const filterSummariesResponse = (state, resp) => {
-    const datas = resp.result.data;
+    const datas = resp.result.data.page.content;
     const summaries = datas.map(data => {
+        const {attendanceCompany,attendanceProfession,attendanceAccessCardNumber} = data;
+        const {attendanceName,attendanceMonth,attendanceIdentityCardNumber} = data.monthlyAttendanceKey;
         return {
-            attendanceCompany: data[1],
-            attendanceDate: data[2],
-            attendanceName: data[3],
-            attendanceDepart:data[4],
-            attendanceIdentityCardNumber: data[5],
-            attendanceAccessCardNumber: data[6],
-            first: data[7],
-            second:data[8],
-            third: data[9],
-            fourth:data[10],
-            fifth: data[11],
-            sixth:data[12],
-            seventh: data[13],
-            eighth:data[14],
-            ninth: data[15],
-            tenth:data[16],
-            eleventh: data[17],
-            twelfth:data[18],
-            thirteenth: data[19],
-            fourteenth:data[20],
-            fifteenth: data[21],
-            sixteenth:data[22],
-            seventeenth: data[23],
-            eighteenth:data[24],
-            nineteenth: data[25],
-            twentieth:data[26],
-            twentyfirst: data[27],
-            twentysecond:data[28],
-            twentythird: data[29],
-            twentyfourth:data[30],
-            twentyfifth: data[31],
-            twentysixth:data[32],
-            twentyseventh: data[33],
-            twentyeighth:data[34],
-            twentyninth: data[35],
-            thirtieth:data[36],
-            thirtyfirst: data[37],
-            attendanceDay: data[38]
+            attendanceCompany,
+            attendanceDate: attendanceMonth,
+            attendanceName,
+            attendanceDepart:attendanceProfession,
+            attendanceIdentityCardNumber,
+            attendanceAccessCardNumber,
+            first: data.attendanceNo1,
+            second:data.attendanceNo2,
+            third: data.attendanceNo3,
+            fourth:data.attendanceNo4,
+            fifth: data.attendanceNo5,
+            sixth:data.attendanceNo6,
+            seventh: data.attendanceNo7,
+            eighth:data.attendanceNo8,
+            ninth: data.attendanceNo9,
+            tenth:data.attendanceNo10,
+            eleventh: data.attendanceNo11,
+            twelfth:data.attendanceNo12,
+            thirteenth: data.attendanceNo13,
+            fourteenth:data.attendanceNo14,
+            fifteenth: data.attendanceNo15,
+            sixteenth:data.attendanceNo16,
+            seventeenth: data.attendanceNo17,
+            eighteenth:data.attendanceNo18,
+            nineteenth: data.attendanceNo19,
+            twentieth:data.attendanceNo20,
+            twentyfirst: data.attendanceNo21,
+            twentysecond:data.attendanceNo22,
+            twentythird: data.attendanceNo23,
+            twentyfourth:data.attendanceNo24,
+            twentyfifth: data.attendanceNo25,
+            twentysixth:data.attendanceNo26,
+            twentyseventh: data.attendanceNo27,
+            twentyeighth:data.attendanceNo28,
+            twentyninth: data.attendanceNo29,
+            thirtieth:data.attendanceNo30,
+            thirtyfirst: data.attendanceNo31,
+            attendanceDay: data.attendanceDays
         }
     })
+
+    const {totalNumber, totalNormalNumber,totalAbnormalNumber} = resp.result.data;
+
+    const count = {
+        totalNumber,
+        totalNormalNumber,
+        totalAbnormalNumber
+    }
+
+    const { totalPages, number }= resp.result.data.page;
+    const pageInfo = {
+        totalPage:totalPages,
+        currentPage:number+1,
+        showBeginIndex: number*20 //show number for per page
+    }
 
     return {
         ...state,
         status: SUCCESS,
-        summaries
+        summaries,
+        count,
+        pageInfo
     };
 
 }
