@@ -14,10 +14,11 @@ const mapDispatherToProps = (dispatch) => {
     }
 }
 
-const mapStatusToProps = (state) => {
-    console.log('records mapStatusToProps:',state);
+const mapStatusToProps = (state,ownProps) => {
+    console.log('summaries mapStatusToProps:',state);
     return {
-        data: state.summaries
+        data: state.summaries,
+        fetchSummaries:ownProps.fetchSummaries
     }
 }
 
@@ -33,8 +34,8 @@ class SummariesTableFilter extends Component {
                     {value:'2',name:'阿里巴巴'}
                 ]
             },
-            startTime:'',
-            endTiem:'',
+            startMonth:'',
+            endMonth:'',
             startTimeshowCalendar:false,
             endTimeshowCalendar:false,
             companyNameSelectDisplay:false
@@ -55,18 +56,24 @@ class SummariesTableFilter extends Component {
     }
     searchRequest = (e)=>{
         e.preventDefault();
-        const {companyName, startTime, endTime} = this.state;
+        const {companyName, startMonth, endMonth} = this.state;
         const params = {
-            'company':companyName,
-            'startDate':startTime,
-            'endDate':endTime
+            company:companyName !== '全部' ? companyName: '',
+            startMonth:this.formatDate(startMonth),
+            endMonth:this.formatDate(endMonth),
+            pageNumber:0
         }
-        this.props.filterSummaries(params);
+        this.props.fetchSummaries(params);
+    }
+
+    formatDate = (date) => {
+        let index = date.lastIndexOf('-');
+        return date.substring(0,index);
     }
 
     showCalendar = (e) => {
         const name = e.currentTarget.name;
-        name === 'startTime' ? (
+        name === 'startMonth' ? (
             this.setState({
                 startTimeshowCalendar:!this.state.startTimeshowCalendar,
                 endTimeshowCalendar:false,
@@ -84,21 +91,22 @@ class SummariesTableFilter extends Component {
     }
 
     handleSelectStartDate = (date) => {
-        const startTime = this.handleDate(date);
-        this.setState({startTime,startTimeshowCalendar:false})
+        debugger;
+        const startMonth = this.handleDate(date);
+        this.setState({startMonth,startTimeshowCalendar:false})
     }
 
     handleSelectEndDate = (date) => {
-        const endTime = this.handleDate(date);
-        this.setState({endTime,endTimeshowCalendar:false})
+        const endMonth = this.handleDate(date);
+        this.setState({endMonth,endTimeshowCalendar:false})
     }
 
     handleDate = (date) => {
         date = new Date(date);
         const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDate();
-        return  `${year}-${month+1}-${day}`;
+        const month = (date.getMonth()+1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return  `${year}-${month}-${day}`;
     }
 
     render() {
@@ -121,7 +129,7 @@ class SummariesTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="开始月份" value={this.state.startTime} readOnly onClick={this.showCalendar} name="startTime"  />
+                        <input type="text" placeholder="开始月份" value={this.state.startMonth} readOnly onClick={this.showCalendar} name="startMonth"  />
                         {this.state.startTimeshowCalendar?
                             <Calendar style={{position:'absolute'}} locale={rdrLocales['zhCN']}  date={new Date()} onChange={this.handleSelectStartDate} />
                             :
@@ -129,7 +137,7 @@ class SummariesTableFilter extends Component {
                         }
                     </div>
                     <div className="form-group">
-                        <input type="text" placeholder="结束月份" value={this.state.endTime} readOnly onClick={this.showCalendar} name="endTime" />
+                        <input type="text" placeholder="结束月份" value={this.state.endMonth} readOnly onClick={this.showCalendar} name="endMonth" />
                         {this.state.endTimeshowCalendar?
                             <Calendar style={{position:'absolute'}} locale={rdrLocales['zhCN']} date={new Date()} onChange={this.handleSelectEndDate} />
                             :

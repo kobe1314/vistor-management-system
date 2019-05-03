@@ -1,7 +1,7 @@
 import { put,call,takeLatest,delay } from 'redux-saga/effects';
 import {FETCH_RECORD_API} from '../actions/actionType';
 import {fetchRecordStarted, fetchRecordSuccess, fetchRecordFail} from '../actions/action'
-import {fetchRecordsAPI} from '../services/enhancedRequest';
+import {fetchAPI} from '../services/enhancedRequest';
 
 function* fetchRecords(action) {
     const apiUrl = '/vr/queryDailyAttendance';
@@ -9,7 +9,7 @@ function* fetchRecords(action) {
         console.log('records acton :',action);
         yield put(fetchRecordStarted());
         // call one api
-        const response = yield call(fetchRecordsAPI,apiUrl,action.params);
+        const response = yield call(fetchAPI,apiUrl,action.params);
         console.log(response);
         yield delay(2000);
         yield put(fetchRecordSuccess(response))

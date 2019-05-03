@@ -9,15 +9,21 @@ import ReactLoading from 'react-loading';
 class Summaries extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            company:'',
+            startMonth:'',
+            endMonth:'',
+            pageNumber:'',
+            pageSize:2
+        };
     }
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
-        this.props.fetchSummaries();
+        this.props.fetchSummaries({pageNumber:0,pageSize:2});
         console.log(this.props);
     }
 
-    fetchSummariesAPI = (params) => {
+    fetchSummaries = (params) => {
         this.setState({...params});
         this.props.fetchSummaries({...this.state,...params}); 
     }
@@ -31,7 +37,7 @@ class Summaries extends Component {
         return (
             <div className="right-content">
                 <Breadcrumb />
-                <SummariesTableFilter />
+                <SummariesTableFilter fetchSummaries={this.fetchSummaries}/>
                 <div className="page-content page-records">
                     <table>
                         <thead>
@@ -135,7 +141,7 @@ class Summaries extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.fetchSummariesAPI}/>
+                <Pagination pageConfig={{currentPage,totalPage}} fetchCurrentPageInfo={this.fetchSummaries}/>
             </div>
         );
     }

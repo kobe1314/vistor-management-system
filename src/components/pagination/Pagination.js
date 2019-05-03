@@ -79,7 +79,7 @@ class Pagination extends Component {
         }
         const parmas = {
             pageNumber: currentPage-1,
-            pageSize: 20
+            pageSize: 2
         }
         this.props.fetchCurrentPageInfo(parmas);
     }

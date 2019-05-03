@@ -1,4 +1,4 @@
-const fetchRecordsAPI = (apiUrl,params = {}) => {
+const fetchAPI = (apiUrl,params = {}) => {
     if (params) {
         let paramsArray = [];
         //拼接参数
@@ -19,6 +19,6 @@ const fetchFilterRecordAPI = (apiUrl,option) => {
 }
 
 export {
-    fetchRecordsAPI,
+    fetchAPI,
     fetchFilterRecordAPI
 }

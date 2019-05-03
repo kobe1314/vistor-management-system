@@ -124,7 +124,7 @@ const filterSummariesResponse = (state, resp) => {
     const pageInfo = {
         totalPage:totalPages,
         currentPage:number+1,
-        showBeginIndex: number*20 //show number for per page
+        showBeginIndex: number*2 //show number for per page
     }
 
     return {
