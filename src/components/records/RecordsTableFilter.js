@@ -148,9 +148,9 @@ class RecordsTableFilter extends Component {
     handleDate = (date) => {
         date = new Date(date);
         const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDate();
-        return  `${year}-${month+1}-${day}`;
+        const month = (date.getMonth()+1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return  `${year}-${month}-${day}`;
     }
 
     render() {
