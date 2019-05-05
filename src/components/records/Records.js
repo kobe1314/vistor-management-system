@@ -26,6 +26,7 @@ class Records extends Component {
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
         this.props.fetchRecords({pageNumber:0,pageSize:20});
+        this.props.fetchDepartmentInfo();
         console.log(this.props);
     }
 
@@ -38,10 +39,11 @@ class Records extends Component {
         const datas = this.props.data && this.props.data.records || [];
         const isLoading = this.props.data.status;
         const { totalPage = 0, showBeginIndex,currentPage } = this.props.data.pageInfo;
+        console.log('department:',this.props.departments.departments);
         return (
             <div className="right-content">
                 <Breadcrumb />
-                <RecordsTableFilter fetchRecordsAPI={this.fetchRecordsAPI} />
+                <RecordsTableFilter fetchRecordsAPI={this.fetchRecordsAPI} departmentsInfo={this.props.departments.departments}/>
                 <div className="page-content page-records">
                     <table>
                         <thead>
@@ -50,7 +52,7 @@ class Records extends Component {
                                 <th>单位名称</th>
                                 <th>姓名</th>
                                 <th>工种</th>
-                                <th>身份证</th>
+                                <th style={{width:'13%'}}>身份证</th>
                                 <th>门禁卡号</th>
                                 <th>考勤日期</th>
                                 <th>考勤时长</th>

@@ -20,6 +20,7 @@ class Summaries extends Component {
     // eslint-disable-next-line react/no-deprecated
     componentWillMount() {
         this.props.fetchSummaries({pageNumber:0,pageSize:2});
+        this.props.fetchDepartmentInfo();
         console.log(this.props);
     }
 
@@ -37,7 +38,7 @@ class Summaries extends Component {
         return (
             <div className="right-content">
                 <Breadcrumb />
-                <SummariesTableFilter fetchSummaries={this.fetchSummaries}/>
+                <SummariesTableFilter fetchSummaries={this.fetchSummaries} departmentsInfo={this.props.departments.departments}/>
                 <div className="page-content page-records">
                     <table>
                         <thead>

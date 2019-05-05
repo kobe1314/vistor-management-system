@@ -7,7 +7,10 @@ import {
     CHANGE_BREAD,
     FETCH_SUMMARIES_STARTED,
     FETCH_SUMMARIES_SUCCES,
-    FETCH_SUMMARIES_FAIL
+    FETCH_SUMMARIES_FAIL,
+    FETCH_DEPARTMENT_API,
+    FETCH_DEPARTMENT_SUCCES,
+    FETCH_DEPARTMENT_FAIL
 } from './actionType';
 
 
@@ -57,6 +60,21 @@ const changeBread = breadText => ({
     }
 });
 
+const fetchDepartmentInfo = () => ({
+    type: FETCH_DEPARTMENT_API
+})
+
+
+const fetchDepartmentInfoSuccess = (result) => ({
+    type: FETCH_DEPARTMENT_SUCCES,
+    result
+})
+
+const fetchDepartmentInfoFail = (error) => ({
+    type: FETCH_DEPARTMENT_FAIL,
+    error
+})
+
 export {
     fetchRecordStarted,
     fetchRecordSuccess,
@@ -66,5 +84,8 @@ export {
     fetchSummariesStarted,
     fetchSummariesSuccess,
     fetchSummariesFail,
-    fetchRecordAPI
+    fetchRecordAPI,
+    fetchDepartmentInfo,
+    fetchDepartmentInfoSuccess,
+    fetchDepartmentInfoFail
 }

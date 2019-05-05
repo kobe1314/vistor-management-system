@@ -13,6 +13,7 @@
     max-width:120px;
     min-width:100px;
     margin-bottom:0.8rem;
+    font-weight: bold;
 }
 .table-filter .form-group .ele-select:after{
     content:'<i className="iconfont">&#xe600;</i>';

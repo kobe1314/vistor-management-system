@@ -1,18 +1,21 @@
-import {fetchSummariesAPI} from '../../actions/action';
+import {fetchSummariesAPI,fetchDepartmentInfo} from '../../actions/action';
 import Summaries from './Summaries';
 import { connect } from 'react-redux';
 const mapDispatherToProps = (dispatch) => {
     return {
         fetchSummaries: (params) => {
             dispatch(fetchSummariesAPI(params))
+        },
+        fetchDepartmentInfo: () => {
+            dispatch(fetchDepartmentInfo())
         }
     }
 }
 
 const mapStatusToProps = (state) => {
-    console.log('summaries mapStatusToProps:',state);
     return {
-        data: state.summaries
+        data: state.summaries,
+        departments:state.departmentsInfo
     }
 }
 

@@ -7,7 +7,13 @@ class Attendance extends Component {
         super(props);
         this.state = {  };
     }
+
+    componentWillMount() {
+        this.props.fetchDepartmentInfo();
+    }
+
     render() {
+        console.log('Attendance',this.props);
         return (
             <div>
                 <Records/>

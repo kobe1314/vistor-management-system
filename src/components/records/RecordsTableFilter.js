@@ -36,12 +36,6 @@ class RecordsTableFilter extends Component {
             startTime:'',
             endTime:'',
             attendanceStatus:'',
-            response:{
-                companys:[
-                    {value:'1',name:'中软国际'},
-                    {value:'2',name:'阿里巴巴'}
-                ]
-            },
             companyNameSelectDisplay:false,
             attendanceStatusSelectDisplay:false,
             startTimeshowCalendar:false,
@@ -163,9 +157,9 @@ class RecordsTableFilter extends Component {
                         {this.state.companyNameSelectDisplay ?
                         <ul className="checkbox-select">
                             <li className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value="0" textvalue="全部" type="radio" /> 全部</li>
-                            {this.state.response.companys.map((item, index)=>{
+                            {this.props.departmentsInfo.map((item, index)=>{
                                 return (
-                                    <li key={index} className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value={item.value} textvalue={item.name} type="radio" /> {item.name}</li>
+                                    <li key={index} className="checkbox-select-item"><input name="companyName" onChange={this.changeCompanyName} value={item.value} textvalue={item.departmentName} type="radio" /> {item.departmentName}</li>
                                 )
                             })}
                         </ul>
