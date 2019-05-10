@@ -29,19 +29,21 @@ const initalState = {
 
 const filterRecordsResponse = (state,resp) => {
     const datas = resp.result.data.page.content;
-    const records = datas.map(data => {
-        const {attendanceCompany, attendanceDepart, attendanceAccessCardNumber,attendanceDuration, attendanceStatus} = data;
-        return {
-            attendanceIdentityCardNumber: data.attendanceKey.attendanceIdentityCardNumber,
-            attendanceDate: data.attendanceKey.attendanceDate,
-            attendanceName: data.attendanceKey.attendanceName,
-            attendanceCompany,
-            attendanceDepart,
-            attendanceAccessCardNumber,
-            attendanceDuration,
-            attendanceStatus
-        }
-    })
+    debugger
+    const records = datas;
+    // datas.map(data => {
+    //     const {attendanceCompany, attendanceDepart, attendanceAccessCardNumber,attendanceDuration, attendanceStatus} = data;
+    //     return {
+    //         attendanceIdentityCardNumber: data.attendanceKey.attendanceIdentityCardNumber,
+    //         attendanceDate: data.attendanceKey.attendanceDate,
+    //         attendanceName: data.attendanceKey.attendanceName,
+    //         attendanceCompany,
+    //         attendanceDepart,
+    //         attendanceAccessCardNumber,
+    //         attendanceDuration,
+    //         attendanceStatus
+    //     }
+    // })
 
     const {totalNumber, totalNormalNumber,totalAbnormalNumber} = resp.result.data;
 
@@ -58,7 +60,7 @@ const filterRecordsResponse = (state,resp) => {
         showBeginIndex: number*20 //show number for per page
     }
 
-    return {...state, status: SUCCESS,records,count,pageInfo};
+    return {...state, status: SUCCESS, records, count, pageInfo};
 
 }
 

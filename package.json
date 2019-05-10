@@ -4,6 +4,12 @@
   "private": true,
   "proxy": "http://127.0.0.1:8223",
   "homepage": "https://myapp.herokuapp.com/",
+  "scripts": {
+    "mock":"node mock/mock.js",
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js"
+  },
   "dependencies": {
     "@babel/core": "7.1.6",
     "@babel/plugin-syntax-json-strings": "^7.2.0",
@@ -71,11 +77,6 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
-  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -135,6 +136,7 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.1",
+    "express": "^4.16.4",
     "history": "^4.9.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",

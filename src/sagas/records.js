@@ -10,7 +10,7 @@ function* fetchRecords(action) {
         yield put(fetchRecordStarted());
         // call one api
         const response = yield call(fetchAPI,apiUrl,action.params);
-        console.log(response);
+        console.log('fetchRecords', response);
         yield delay(2000);
         yield put(fetchRecordSuccess(response))
     } catch (error) {

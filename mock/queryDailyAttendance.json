@@ -1,0 +1,40 @@
+{
+    "data":{
+        "page":{
+            "content":[
+                {
+                    "attendanceIdentityCardNumber": "123432198811091212",
+                    "attendanceName": "张三",
+                    "attendanceDate": "2019-05-10",
+                    "attendanceCompany": "华为",
+                    "attendanceDepart": "开发",
+                    "attendanceAccessCardNumber": "1431234123412341234123412341234",
+                    "attendanceDuration": "7",
+                    "attendanceStatus":"0"
+                },
+                {
+                    "attendanceIdentityCardNumber": "123432198811091212",
+                    "attendanceName": "李四",
+                    "attendanceDate": "2019-05-10",
+                    "attendanceCompany": "中软国际",
+                    "attendanceDepart": "开发",
+                    "attendanceAccessCardNumber": "1431234123412341234123412341234",
+                    "attendanceDuration": "8",
+                    "attendanceStatus":"1"
+                },
+                {
+                    "attendanceIdentityCardNumber": "123432198811091212",
+                    "attendanceName": "王五",
+                    "attendanceDate": "2019-05-10",
+                    "attendanceCompany": "汇丰",
+                    "attendanceDepart": "开发管理",
+                    "attendanceAccessCardNumber": "1431234123412341234123412341234",
+                    "attendanceDuration": "8",
+                    "attendanceStatus":"1"
+                }
+            ],
+            "totalPages":10,
+            "number":"2"
+        }
+    }
+}

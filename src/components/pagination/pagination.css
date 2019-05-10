@@ -6,7 +6,10 @@
     clear: both;
 }
 .page-container {
-    zoom: 1
+    zoom: 1;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 1.3rem 1.3rem;
 }
 
 .page-container li {
