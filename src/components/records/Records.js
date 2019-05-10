@@ -32,7 +32,7 @@ class Records extends Component {
 
     fetchRecordsAPI = (params) => {
         this.setState({...params});
-        this.props.fetchRecords({...this.state,...params}); 
+        this.props.fetchRecords({...this.state,...params});
     }
 
     render() {

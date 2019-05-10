@@ -8,7 +8,7 @@ import Records from './components/records/RecordsContainer';
 import Summaries from './components/summaries/SummariesContainer';
 import Registration from './components/visitor/Registration';
 import Attendance from './router/App';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import './assets/css/common.css';
 import'babel-polyfill';

@@ -26,7 +26,7 @@ class Summaries extends Component {
 
     fetchSummaries = (params) => {
         this.setState({...params});
-        this.props.fetchSummaries({...this.state,...params}); 
+        this.props.fetchSummaries({...this.state,...params});
     }
 
     render() {
