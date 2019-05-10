@@ -13,3 +13,10 @@
     padding-left:12.5px;
     text-decoration: none;
 }
+.navBar .tab-btn[active=true]{
+    color: #0b90d2;
+}
+.navBar .tab-btn[active=true] .iconfont{
+    color: #0b90d2;
+
+}
